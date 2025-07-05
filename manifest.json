@@ -1,0 +1,146 @@
+{
+    "name": "KBN Financial Boutique",
+    "short_name": "KBN Financial",
+    "description": "We are Intentional, International and Generational. Kingdom Capital Fund and Kingdom Impact Fund for Christian businesses in Rwanda.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#08264D",
+    "theme_color": "#08264D",
+    "orientation": "portrait-primary",
+    "categories": ["finance", "business", "productivity"],
+    "lang": "en-US",
+    "dir": "ltr",
+    "scope": "/",
+    "icons": [
+        {
+            "src": "/assets/img/kbn-logo-72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/img/kbn-logo-96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/img/kbn-logo-128.png",
+            "sizes": "128x128",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/img/kbn-logo-144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/img/kbn-logo-152.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/img/kbn-logo-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/img/kbn-logo-384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/img/kbn-logo-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Apply for Loan",
+            "short_name": "Apply",
+            "description": "Apply for Kingdom Capital Fund or Kingdom Impact Fund",
+            "url": "/loan.html",
+            "icons": [
+                {
+                    "src": "/assets/img/apply-icon-96.png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Member Dashboard",
+            "short_name": "Dashboard",
+            "description": "Access your member dashboard",
+            "url": "/dashboard/member.html",
+            "icons": [
+                {
+                    "src": "/assets/img/dashboard-icon-96.png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Resources",
+            "short_name": "Resources",
+            "description": "Access business and financial resources",
+            "url": "/resources.html",
+            "icons": [
+                {
+                    "src": "/assets/img/resources-icon-96.png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Contact Us",
+            "short_name": "Contact",
+            "description": "Get in touch with our team",
+            "url": "/contact.html",
+            "icons": [
+                {
+                    "src": "/assets/img/contact-icon-96.png",
+                    "sizes": "96x96"
+                }
+            ]
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/assets/img/screenshot-homepage.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "label": "Homepage showcasing KBN Financial Boutique services"
+        },
+        {
+            "src": "/assets/img/screenshot-loan-application.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "label": "Loan application form with multi-step wizard"
+        },
+        {
+            "src": "/assets/img/screenshot-dashboard.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "label": "Member dashboard with application status"
+        }
+    ],
+    "related_applications": [
+        {
+            "platform": "play",
+            "url": "https://play.google.com/store/apps/details?id=com.kbn.financial",
+            "id": "com.kbn.financial"
+        }
+    ],
+    "prefer_related_applications": false,
+    "protocol_handlers": [
+        {
+            "protocol": "mailto",
+            "url": "/contact.html?email=%s"
+        }
+    ],
+    "features": [
+        "cross-origin-isolated"
+    ],
+    "edge_side_panel": {
+        "preferred_width": 400
+    }
+} 

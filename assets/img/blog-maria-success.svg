@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <defs>
+    <linearGradient id="successGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8E24AA"/>
+      <stop offset="100%" style="stop-color:#AB47BC"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="400" fill="url(#successGrad)"/>
+  
+  <!-- Overlay pattern -->
+  <circle cx="100" cy="350" r="50" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="520" cy="60" r="40" fill="rgba(255,255,255,0.08)"/>
+  
+  <!-- Title -->
+  <text x="300" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">
+    Maria's Success Story
+  </text>
+  
+  <!-- Success Journey Path -->
+  <g transform="translate(80, 80)">
+    <!-- Path line -->
+    <path d="M0 160 Q120 100 240 160 Q360 220 440 160" stroke="white" stroke-width="3" fill="none" stroke-dasharray="5,5"/>
+    
+    <!-- Stage 1: Struggle -->
+    <circle cx="0" cy="160" r="25" fill="#E53935"/>
+    <text x="0" y="165" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Start</text>
+    <text x="0" y="195" font-family="Arial" font-size="12" fill="white" text-anchor="middle">Struggle</text>
+    
+    <!-- Stage 2: Loan -->
+    <circle cx="120" cy="100" r="25" fill="#FFB74D"/>
+    <text x="120" y="105" font-family="Arial" font-size="10" fill="white" text-anchor="middle">KBN</text>
+    <text x="120" y="80" font-family="Arial" font-size="12" fill="white" text-anchor="middle">Loan</text>
+    
+    <!-- Stage 3: Growth -->
+    <circle cx="240" cy="160" r="25" fill="#66BB6A"/>
+    <text x="240" y="165" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Grow</text>
+    <text x="240" y="195" font-family="Arial" font-size="12" fill="white" text-anchor="middle">Business</text>
+    
+    <!-- Stage 4: Success -->
+    <circle cx="360" cy="220" r="25" fill="#42A5F5"/>
+    <text x="360" y="225" font-family="Arial" font-size="10" fill="white" text-anchor="middle">12</text>
+    <text x="360" y="255" font-family="Arial" font-size="12" fill="white" text-anchor="middle">Employees</text>
+    
+    <!-- Stage 5: Impact -->
+    <circle cx="440" cy="160" r="25" fill="#AB47BC"/>
+    <text x="440" y="165" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Impact</text>
+    <text x="440" y="195" font-family="Arial" font-size="12" fill="white" text-anchor="middle">Community</text>
+  </g>
+  
+  <!-- Quote card -->
+  <rect x="50" y="280" width="500" height="80" rx="15" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <text x="300" y="305" font-family="Arial" font-size="14" font-style="italic" fill="white" text-anchor="middle">
+    "From a single sewing machine to employing 12 people - 
+  </text>
+  <text x="300" y="325" font-family="Arial" font-size="14" font-style="italic" fill="white" text-anchor="middle">
+    God has blessed our tailoring business beyond imagination."
+  </text>
+  <text x="300" y="345" font-family="Arial" font-size="12" fill="rgba(255,255,255,0.8)" text-anchor="middle">
+    - Maria Uwimana, KBN Beneficiary
+  </text>
+  
+  <!-- KBN Logo mark -->
+  <rect x="20" y="20" width="40" height="20" rx="5" fill="rgba(255,255,255,0.2)"/>
+  <text x="40" y="35" font-family="Arial" font-size="12" font-weight="bold" fill="white" text-anchor="middle">KBN</text>
+</svg> 

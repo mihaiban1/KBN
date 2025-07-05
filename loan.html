@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Apply for Kingdom Capital Fund or Kingdom Impact Fund loans. Join KBN Financial Boutique membership for Christian business support.">
+    <meta name="keywords" content="loan application, membership, Kingdom Capital Fund, Kingdom Impact Fund, Christian business loan, Rwanda">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: https: blob:;">
+    
+    <title>Apply for Loan & Membership - KBN Financial Boutique</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/utils.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav__container">
+                <div class="nav__logo">
+                    <img src="assets/img/kbn-logo.png" alt="KBN Financial Boutique Logo" class="nav__logo-img">
+                </div>
+                <ul class="nav__menu" id="nav-menu">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="who-we-are.html" class="nav__link">Who We Are</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="loan.html" class="nav__link nav__link--active">Apply</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="blog/index.html" class="nav__link">Blog</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="contact.html" class="nav__link">Contact</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="login.html" class="nav__link nav__link--login">Login</a>
+                    </li>
+                </ul>
+                <div class="nav__toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <div class="page-header__content">
+                    <h1 class="page-header__title">Apply for Loan & Membership</h1>
+                    <p class="page-header__subtitle">
+                        Join the Kingdom business movement and access capital to grow your God-honoring enterprise.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Tabs -->
+        <section class="application-section">
+            <div class="container">
+                <div class="application-tabs">
+                    <div class="tab-nav">
+                        <button class="tab-nav__button active" data-tab="loan-application">
+                            <span class="tab-nav__icon">💰</span>
+                            Loan Application
+                        </button>
+                        <button class="tab-nav__button" data-tab="membership-form">
+                            <span class="tab-nav__icon">🤝</span>
+                            Membership Form
+                        </button>
+                    </div>
+
+                    <!-- Loan Application Tab -->
+                    <div class="tab-content active" id="loan-application">
+                        <div class="tab-intro">
+                            <h2 class="tab-intro__title">Loan Application</h2>
+                            <p class="tab-intro__description">
+                                Apply for either our Kingdom Capital Fund (for established entrepreneurs) or 
+                                Kingdom Impact Fund (for churches and non-profits). Complete this 5-step application 
+                                to get started.
+                            </p>
+                        </div>
+
+                        <form class="form-wizard" id="loan-wizard" data-form-id="loan-application">
+                            <!-- Progress Steps -->
+                            <div class="wizard-steps">
+                                <div class="wizard-step active">
+                                    <div class="wizard-step__number">1</div>
+                                    <div class="wizard-step__title">Personal Info</div>
+                                </div>
+                                <div class="wizard-step">
+                                    <div class="wizard-step__number">2</div>
+                                    <div class="wizard-step__title">Business Info</div>
+                                </div>
+                                <div class="wizard-step">
+                                    <div class="wizard-step__number">3</div>
+                                    <div class="wizard-step__title">Financial Details</div>
+                                </div>
+                                <div class="wizard-step">
+                                    <div class="wizard-step__number">4</div>
+                                    <div class="wizard-step__title">Documentation</div>
+                                </div>
+                                <div class="wizard-step">
+                                    <div class="wizard-step__number">5</div>
+                                    <div class="wizard-step__title">Review & Submit</div>
+                                </div>
+                            </div>
+
+                            <!-- Step 1: Personal Information -->
+                            <div class="wizard-content">
+                                <h3 class="wizard-content__title">Personal Information</h3>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="firstName" class="form-label">First Name *</label>
+                                        <input type="text" id="firstName" name="firstName" class="form-input" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName" class="form-label">Last Name *</label>
+                                        <input type="text" id="lastName" name="lastName" class="form-input" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" class="form-label">Email Address *</label>
+                                        <input type="email" id="email" name="email" class="form-input" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone" class="form-label">Phone Number *</label>
+                                        <input type="tel" id="phone" name="phone" class="form-input" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dateOfBirth" class="form-label">Date of Birth *</label>
+                                        <input type="date" id="dateOfBirth" name="dateOfBirth" class="form-input" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nationalId" class="form-label">National ID Number *</label>
+                                        <input type="text" id="nationalId" name="nationalId" class="form-input" required>
+                                    </div>
+                                    <div class="form-group form-group--full">
+                                        <label for="address" class="form-label">Physical Address *</label>
+                                        <textarea id="address" name="address" class="form-textarea" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="maritalStatus" class="form-label">Marital Status *</label>
+                                        <select id="maritalStatus" name="maritalStatus" class="form-select" required>
+                                            <option value="">Select status</option>
+                                            <option value="single">Single</option>
+                                            <option value="married">Married</option>
+                                            <option value="divorced">Divorced</option>
+                                            <option value="widowed">Widowed</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="churchAffiliation" class="form-label">Church Affiliation</label>
+                                        <input type="text" id="churchAffiliation" name="churchAffiliation" class="form-input">
+                                    </div>
+                                </div>
+                                <div class="wizard-buttons">
+                                    <button type="button" class="btn btn--secondary btn-prev" style="display: none;">Previous</button>
+                                    <button type="button" class="btn btn--primary btn-next">Next</button>
+                                </div>
+                            </div>
+
+                            <!-- Step 2: Business Information -->
+                            <div class="wizard-content" style="display: none;">
+                                <h3 class="wizard-content__title">Business Information</h3>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="businessName" class="form-label">Business Name *</label>
+                                        <input type="text" id="businessName" name="businessName" class="form-input" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="businessType" class="form-label">Business Type *</label>
+                                        <select id="businessType" name="businessType" class="form-select" required>
+                                            <option value="">Select type</option>
+                                            <option value="sole-proprietorship">Sole Proprietorship</option>
+                                            <option value="partnership">Partnership</option>
+                                            <option value="limited-company">Limited Company</option>
+                                            <option value="cooperative">Cooperative</option>
+                                            <option value="church">Church</option>
+                                            <option value="non-profit">Non-Profit Organization</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="businessSector" class="form-label">Business Sector *</label>
+                                        <select id="businessSector" name="businessSector" class="form-select" required>
+                                            <option value="">Select sector</option>
+                                            <option value="agriculture">Agriculture</option>
+                                            <option value="manufacturing">Manufacturing</option>
+                                            <option value="retail">Retail/Trade</option>
+                                            <option value="services">Services</option>
+                                            <option value="technology">Technology</option>
+                                            <option value="education">Education</option>
+                                            <option value="healthcare">Healthcare</option>
+                                            <option value="construction">Construction</option>
+                                            <option value="transportation">Transportation</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="registrationNumber" class="form-label">Registration Number</label>
+                                        <input type="text" id="registrationNumber" name="registrationNumber" class="form-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tinNumber" class="form-label">TIN Number</label>
+                                        <input type="text" id="tinNumber" name="tinNumber" class="form-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="businessAge" class="form-label">Years in Business *</label>
+                                        <select id="businessAge" name="businessAge" class="form-select" required>
+                                            <option value="">Select years</option>
+                                            <option value="startup">Startup (Less than 1 year)</option>
+                                            <option value="1-2">1-2 years</option>
+                                            <option value="3-5">3-5 years</option>
+                                            <option value="6-10">6-10 years</option>
+                                            <option value="10+">More than 10 years</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group form-group--full">
+                                        <label for="businessAddress" class="form-label">Business Address *</label>
+                                        <textarea id="businessAddress" name="businessAddress" class="form-textarea" required></textarea>
+                                    </div>
+                                    <div class="form-group form-group--full">
+                                        <label for="businessDescription" class="form-label">Business Description *</label>
+                                        <textarea id="businessDescription" name="businessDescription" class="form-textarea" required placeholder="Describe your business activities, products, or services"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="numberOfEmployees" class="form-label">Number of Employees</label>
+                                        <select id="numberOfEmployees" name="numberOfEmployees" class="form-select">
+                                            <option value="">Select range</option>
+                                            <option value="1">Just me</option>
+                                            <option value="2-5">2-5 employees</option>
+                                            <option value="6-10">6-10 employees</option>
+                                            <option value="11-25">11-25 employees</option>
+                                            <option value="26-50">26-50 employees</option>
+                                            <option value="50+">More than 50 employees</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="wizard-buttons">
+                                    <button type="button" class="btn btn--secondary btn-prev">Previous</button>
+                                    <button type="button" class="btn btn--primary btn-next">Next</button>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: Financial Details -->
+                            <div class="wizard-content" style="display: none;">
+                                <h3 class="wizard-content__title">Financial Details</h3>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="loanType" class="form-label">Loan Type *</label>
+                                        <select id="loanType" name="loanType" class="form-select" required>
+                                            <option value="">Select loan type</option>
+                                            <option value="kingdom-capital">Kingdom Capital Fund</option>
+                                            <option value="kingdom-impact">Kingdom Impact Fund</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="loanAmount" class="form-label">Loan Amount (RWF) *</label>
+                                        <input type="number" id="loanAmount" name="loanAmount" class="form-input" required min="50000" max="5000000">
+                                        <div class="form-help">Amount between 50,000 and 5,000,000 RWF</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="loanPurpose" class="form-label">Loan Purpose *</label>
+                                        <select id="loanPurpose" name="loanPurpose" class="form-select" required>
+                                            <option value="">Select purpose</option>
+                                            <option value="working-capital">Working Capital</option>
+                                            <option value="equipment">Equipment Purchase</option>
+                                            <option value="expansion">Business Expansion</option>
+                                            <option value="inventory">Inventory</option>
+                                            <option value="property">Property/Real Estate</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="repaymentTerm" class="form-label">Preferred Repayment Term *</label>
+                                        <select id="repaymentTerm" name="repaymentTerm" class="form-select" required>
+                                            <option value="">Select term</option>
+                                            <option value="6">6 months</option>
+                                            <option value="12">12 months</option>
+                                            <option value="18">18 months</option>
+                                            <option value="24">24 months</option>
+                                            <option value="36">36 months</option>
+                                            <option value="48">48 months</option>
+                                            <option value="60">60 months</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="monthlyIncome" class="form-label">Monthly Income (RWF) *</label>
+                                        <input type="number" id="monthlyIncome" name="monthlyIncome" class="form-input" required min="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="monthlyExpenses" class="form-label">Monthly Expenses (RWF) *</label>
+                                        <input type="number" id="monthlyExpenses" name="monthlyExpenses" class="form-input" required min="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="collateralType" class="form-label">Collateral Type</label>
+                                        <select id="collateralType" name="collateralType" class="form-select">
+                                            <option value="">Select collateral</option>
+                                            <option value="property">Property/Real Estate</option>
+                                            <option value="equipment">Equipment</option>
+                                            <option value="inventory">Inventory</option>
+                                            <option value="vehicle">Vehicle</option>
+                                            <option value="savings">Savings Account</option>
+                                            <option value="guarantor">Personal Guarantor</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="collateralValue" class="form-label">Collateral Value (RWF)</label>
+                                        <input type="number" id="collateralValue" name="collateralValue" class="form-input" min="0">
+                                    </div>
+                                    <div class="form-group form-group--full">
+                                        <label for="loanPurposeDetails" class="form-label">Detailed Loan Purpose *</label>
+                                        <textarea id="loanPurposeDetails" name="loanPurposeDetails" class="form-textarea" required placeholder="Explain in detail how you will use the loan funds"></textarea>
+                                    </div>
+                                </div>
+                                <div class="wizard-buttons">
+                                    <button type="button" class="btn btn--secondary btn-prev">Previous</button>
+                                    <button type="button" class="btn btn--primary btn-next">Next</button>
+                                </div>
+                            </div>
+
+                            <!-- Step 4: Documentation -->
+                            <div class="wizard-content" style="display: none;">
+                                <h3 class="wizard-content__title">Required Documentation</h3>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="nationalIdCopy" class="form-label">National ID Copy *</label>
+                                        <input type="file" id="nationalIdCopy" name="nationalIdCopy" class="form-input" accept="image/*,application/pdf" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="businessLicense" class="form-label">Business License/Registration</label>
+                                        <input type="file" id="businessLicense" name="businessLicense" class="form-input" accept="image/*,application/pdf">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="taxCertificate" class="form-label">Tax Certificate</label>
+                                        <input type="file" id="taxCertificate" name="taxCertificate" class="form-input" accept="image/*,application/pdf">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bankStatements" class="form-label">Bank Statements (Last 6 months) *</label>
+                                        <input type="file" id="bankStatements" name="bankStatements" class="form-input" accept="image/*,application/pdf" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="businessPlan" class="form-label">Business Plan</label>
+                                        <input type="file" id="businessPlan" name="businessPlan" class="form-input" accept="application/pdf">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="collateralDocs" class="form-label">Collateral Documents</label>
+                                        <input type="file" id="collateralDocs" name="collateralDocs" class="form-input" accept="image/*,application/pdf">
+                                    </div>
+                                </div>
+                                <div class="documentation-note">
+                                    <p><strong>Note:</strong> Please ensure all documents are clear and legible. Supported formats: JPEG, PNG, PDF (max 5MB each)</p>
+                                </div>
+                                <div class="wizard-buttons">
+                                    <button type="button" class="btn btn--secondary btn-prev">Previous</button>
+                                    <button type="button" class="btn btn--primary btn-next">Next</button>
+                                </div>
+                            </div>
+
+                            <!-- Step 5: Review & Submit -->
+                            <div class="wizard-content" style="display: none;">
+                                <h3 class="wizard-content__title">Review & Submit</h3>
+                                <div class="application-summary">
+                                    <div class="summary-section">
+                                        <h4>Personal Information</h4>
+                                        <div class="summary-item">
+                                            <span class="summary-label">Name:</span>
+                                            <span class="summary-value" id="summary-name">-</span>
+                                        </div>
+                                        <div class="summary-item">
+                                            <span class="summary-label">Email:</span>
+                                            <span class="summary-value" id="summary-email">-</span>
+                                        </div>
+                                        <div class="summary-item">
+                                            <span class="summary-label">Phone:</span>
+                                            <span class="summary-value" id="summary-phone">-</span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-section">
+                                        <h4>Business Information</h4>
+                                        <div class="summary-item">
+                                            <span class="summary-label">Business Name:</span>
+                                            <span class="summary-value" id="summary-business-name">-</span>
+                                        </div>
+                                        <div class="summary-item">
+                                            <span class="summary-label">Business Type:</span>
+                                            <span class="summary-value" id="summary-business-type">-</span>
+                                        </div>
+                                        <div class="summary-item">
+                                            <span class="summary-label">Sector:</span>
+                                            <span class="summary-value" id="summary-business-sector">-</span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-section">
+                                        <h4>Loan Details</h4>
+                                        <div class="summary-item">
+                                            <span class="summary-label">Loan Type:</span>
+                                            <span class="summary-value" id="summary-loan-type">-</span>
+                                        </div>
+                                        <div class="summary-item">
+                                            <span class="summary-label">Amount:</span>
+                                            <span class="summary-value" id="summary-loan-amount">-</span>
+                                        </div>
+                                        <div class="summary-item">
+                                            <span class="summary-label">Purpose:</span>
+                                            <span class="summary-value" id="summary-loan-purpose">-</span>
+                                        </div>
+                                        <div class="summary-item">
+                                            <span class="summary-label">Repayment Term:</span>
+                                            <span class="summary-value" id="summary-repayment-term">-</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="terms-agreement">
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="termsAccepted" name="termsAccepted" required>
+                                        <label for="termsAccepted">
+                                            I agree to the <a href="#" target="_blank">Terms and Conditions</a> and 
+                                            <a href="#" target="_blank">Privacy Policy</a> *
+                                        </label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="informationAccuracy" name="informationAccuracy" required>
+                                        <label for="informationAccuracy">
+                                            I confirm that all information provided is accurate and complete *
+                                        </label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="creditCheck" name="creditCheck" required>
+                                        <label for="creditCheck">
+                                            I authorize KBN to conduct credit checks and verify provided information *
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="wizard-buttons">
+                                    <button type="button" class="btn btn--secondary btn-prev">Previous</button>
+                                    <button type="button" class="btn btn--primary btn-submit">Submit Application</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Membership Form Tab -->
+                    <div class="tab-content" id="membership-form">
+                        <div class="tab-intro">
+                            <h2 class="tab-intro__title">Membership Application</h2>
+                            <p class="tab-intro__description">
+                                Join the KBN Financial Boutique community and gain access to exclusive benefits, 
+                                networking opportunities, and resources for Kingdom business development.
+                            </p>
+                        </div>
+
+                        <form class="membership-form">
+                            <div class="form-section">
+                                <h3 class="form-section__title">Personal Information</h3>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="memberFirstName" class="form-label">First Name *</label>
+                                        <input type="text" id="memberFirstName" name="memberFirstName" class="form-input" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="memberLastName" class="form-label">Last Name *</label>
+                                        <input type="text" id="memberLastName" name="memberLastName" class="form-input" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="memberEmail" class="form-label">Email Address *</label>
+                                        <input type="email" id="memberEmail" name="memberEmail" class="form-input" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="memberPhone" class="form-label">Phone Number *</label>
+                                        <input type="tel" id="memberPhone" name="memberPhone" class="form-input" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="memberChurch" class="form-label">Church Affiliation</label>
+                                        <input type="text" id="memberChurch" name="memberChurch" class="form-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="memberProfession" class="form-label">Profession/Role *</label>
+                                        <input type="text" id="memberProfession" name="memberProfession" class="form-input" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3 class="form-section__title">Membership Type</h3>
+                                <div class="membership-types">
+                                    <div class="membership-type">
+                                        <div class="form-radio">
+                                            <input type="radio" id="individualMember" name="membershipType" value="individual" required>
+                                            <label for="individualMember">
+                                                <strong>Individual Membership</strong> - For entrepreneurs and business professionals
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="membership-type">
+                                        <div class="form-radio">
+                                            <input type="radio" id="churchMember" name="membershipType" value="church" required>
+                                            <label for="churchMember">
+                                                <strong>Church Membership</strong> - For churches and religious organizations
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="membership-type">
+                                        <div class="form-radio">
+                                            <input type="radio" id="nonprofitMember" name="membershipType" value="nonprofit" required>
+                                            <label for="nonprofitMember">
+                                                <strong>Non-Profit Membership</strong> - For Christian non-profit organizations
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3 class="form-section__title">Areas of Interest</h3>
+                                <div class="interests-grid">
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="businessTraining" name="interests" value="business-training">
+                                        <label for="businessTraining">Business Training & Development</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="networking" name="interests" value="networking">
+                                        <label for="networking">Networking & Partnerships</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="mentorship" name="interests" value="mentorship">
+                                        <label for="mentorship">Mentorship Programs</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="funding" name="interests" value="funding">
+                                        <label for="funding">Access to Funding</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="workshops" name="interests" value="workshops">
+                                        <label for="workshops">Workshops & Seminars</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="prayer" name="interests" value="prayer">
+                                        <label for="prayer">Prayer & Spiritual Support</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3 class="form-section__title">Additional Information</h3>
+                                <div class="form-group">
+                                    <label for="membershipMotivation" class="form-label">Why do you want to join KBN? *</label>
+                                    <textarea id="membershipMotivation" name="membershipMotivation" class="form-textarea" required placeholder="Tell us about your motivation for joining and how you hope to contribute to the KBN community"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="businessExperience" class="form-label">Business Experience</label>
+                                    <textarea id="businessExperience" name="businessExperience" class="form-textarea" placeholder="Describe your business experience and current ventures"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <div class="form-checkbox">
+                                    <input type="checkbox" id="membershipTerms" name="membershipTerms" required>
+                                    <label for="membershipTerms">
+                                        I agree to the membership terms and conditions *
+                                    </label>
+                                </div>
+                                <div class="form-checkbox">
+                                    <input type="checkbox" id="newsletters" name="newsletters">
+                                    <label for="newsletters">
+                                        I would like to receive newsletters and updates from KBN
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn--primary btn--large">Submit Membership Application</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <div class="footer__logo">
+                        <img src="assets/img/kbn-logo-white.png" alt="KBN Financial Boutique" class="footer__logo-img">
+                    </div>
+                    <p class="footer__description">
+                        Empowering Christian businesses through Kingdom Capital Fund and Kingdom Impact Fund. 
+                        We are Intentional, International and Generational.
+                    </p>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link" aria-label="Facebook">
+                            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="LinkedIn">
+                            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="Twitter">
+                            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__title">Quick Links</h4>
+                    <ul class="footer__links">
+                        <li><a href="who-we-are.html" class="footer__link">Who We Are</a></li>
+                        <li><a href="loan.html" class="footer__link">Apply for Loan</a></li>
+                        <li><a href="blog/index.html" class="footer__link">Blog</a></li>
+                        <li><a href="contact.html" class="footer__link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__title">Services</h4>
+                    <ul class="footer__links">
+                        <li><a href="loan.html" class="footer__link">Kingdom Capital Fund</a></li>
+                        <li><a href="loan.html" class="footer__link">Kingdom Impact Fund</a></li>
+                        <li><a href="loan.html" class="footer__link">Membership</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__title">Contact Info</h4>
+                    <div class="footer__contact">
+                        <p>KG 176 Str<br>Gasabo, Remera<br>Rwanda</p>
+                        <p>Phone: +250 795 308 627</p>
+                        <p>Email: info@kbn.com</p>
+                        <p>Website: www.kbn.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 KBN Financial Boutique. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/form-wizard.js"></script>
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-nav__button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetTab = this.dataset.tab;
+                    
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+            
+            // Initialize Form Wizard for loan application
+            const loanWizard = new FormWizard('#loan-wizard');
+            
+            // Membership form submission
+            const membershipForm = document.querySelector('.membership-form');
+            if (membershipForm) {
+                membershipForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Simple form validation
+                    const requiredFields = membershipForm.querySelectorAll('[required]');
+                    let isValid = true;
+                    
+                    requiredFields.forEach(field => {
+                        if (!field.value.trim()) {
+                            isValid = false;
+                            field.style.borderColor = '#DC3545';
+                        } else {
+                            field.style.borderColor = '';
+                        }
+                    });
+                    
+                    if (isValid) {
+                        // Simulate form submission
+                        const submitButton = membershipForm.querySelector('button[type="submit"]');
+                        submitButton.textContent = 'Submitting...';
+                        submitButton.disabled = true;
+                        
+                        setTimeout(() => {
+                            alert('Membership application submitted successfully! We will review your application and get back to you soon.');
+                            membershipForm.reset();
+                            submitButton.textContent = 'Submit Membership Application';
+                            submitButton.disabled = false;
+                        }, 2000);
+                    } else {
+                        alert('Please fill in all required fields.');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

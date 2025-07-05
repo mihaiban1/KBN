@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <defs>
+    <linearGradient id="featuredGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#08264D"/>
+      <stop offset="100%" style="stop-color:#0a2f5a"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f8f9fa"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="400" fill="url(#featuredGrad)"/>
+  
+  <!-- Overlay pattern -->
+  <circle cx="100" cy="100" r="80" fill="rgba(255,255,255,0.05)"/>
+  <circle cx="500" cy="300" r="60" fill="rgba(255,255,255,0.05)"/>
+  
+  <!-- Title -->
+  <text x="300" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">
+    Kingdom Business Principles
+  </text>
+  
+  <!-- Three pillars -->
+  <g transform="translate(80, 120)">
+    <!-- Pillar 1: Faith -->
+    <rect x="0" y="0" width="120" height="160" rx="15" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+    <circle cx="60" cy="40" r="20" fill="#08264D"/>
+    <path d="M52 32 l8 8 l16 -16" stroke="white" stroke-width="2" fill="none"/>
+    <text x="60" y="75" font-family="Arial" font-size="14" font-weight="bold" fill="#08264D" text-anchor="middle">Faith</text>
+    <text x="60" y="95" font-family="Arial" font-size="11" fill="#6c757d" text-anchor="middle">Biblical</text>
+    <text x="60" y="110" font-family="Arial" font-size="11" fill="#6c757d" text-anchor="middle">Foundation</text>
+    
+    <!-- Pillar 2: Integrity -->
+    <rect x="150" y="0" width="120" height="160" rx="15" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+    <circle cx="210" cy="40" r="20" fill="#4CAF50"/>
+    <rect x="202" y="32" width="16" height="16" fill="white"/>
+    <text x="210" y="75" font-family="Arial" font-size="14" font-weight="bold" fill="#08264D" text-anchor="middle">Integrity</text>
+    <text x="210" y="95" font-family="Arial" font-size="11" fill="#6c757d" text-anchor="middle">Honest</text>
+    <text x="210" y="110" font-family="Arial" font-size="11" fill="#6c757d" text-anchor="middle">Business</text>
+    
+    <!-- Pillar 3: Excellence -->
+    <rect x="300" y="0" width="120" height="160" rx="15" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+    <circle cx="360" cy="40" r="20" fill="#FF9800"/>
+    <polygon points="360,30 365,40 360,50 355,40" fill="white"/>
+    <text x="360" y="75" font-family="Arial" font-size="14" font-weight="bold" fill="#08264D" text-anchor="middle">Excellence</text>
+    <text x="360" y="95" font-family="Arial" font-size="11" fill="#6c757d" text-anchor="middle">Quality</text>
+    <text x="360" y="110" font-family="Arial" font-size="11" fill="#6c757d" text-anchor="middle">Service</text>
+  </g>
+  
+  <!-- Bottom text -->
+  <text x="300" y="330" font-family="Arial" font-size="16" fill="rgba(255,255,255,0.9)" text-anchor="middle">
+    Building God's Kingdom Through Business
+  </text>
+  
+  <!-- KBN Logo mark -->
+  <rect x="20" y="20" width="40" height="20" rx="5" fill="rgba(255,255,255,0.2)"/>
+  <text x="40" y="35" font-family="Arial" font-size="12" font-weight="bold" fill="white" text-anchor="middle">KBN</text>
+</svg> 

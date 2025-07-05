@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <defs>
+    <linearGradient id="testimonial2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1976D2"/>
+      <stop offset="100%" style="stop-color:#2196F3"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="300" height="300" fill="url(#testimonial2Grad)"/>
+  
+  <!-- Pastor figure -->
+  <g transform="translate(150, 70)">
+    <!-- Head -->
+    <circle cx="0" cy="40" r="35" fill="rgba(255,255,255,0.9)"/>
+    <ellipse cx="0" cy="30" rx="15" ry="20" fill="#8D6E63"/>
+    
+    <!-- Suit/clerical attire -->
+    <rect x="-40" y="75" width="80" height="100" rx="10" fill="rgba(255,255,255,0.8)"/>
+    <!-- Clerical collar -->
+    <rect x="-40" y="80" width="80" height="8" fill="#333"/>
+    <rect x="-5" y="80" width="10" height="8" fill="white"/>
+    <!-- Suit jacket -->
+    <path d="M-35 88 L-25 85 L25 85 L35 88 L35 175 L-35 175 Z" fill="#333"/>
+  </g>
+  
+  <!-- Ministry/business symbols -->
+  <g transform="translate(50, 190)">
+    <circle cx="30" cy="30" r="20" fill="rgba(255,255,255,0.8)"/>
+    <text x="30" y="35" font-family="Arial" font-size="14" fill="#1976D2" text-anchor="middle">✝️</text>
+    
+    <circle cx="80" cy="30" r="20" fill="rgba(255,255,255,0.8)"/>
+    <text x="80" y="35" font-family="Arial" font-size="14" fill="#1976D2" text-anchor="middle">🏛️</text>
+    
+    <circle cx="130" cy="30" r="20" fill="rgba(255,255,255,0.8)"/>
+    <text x="130" y="35" font-family="Arial" font-size="14" fill="#1976D2" text-anchor="middle">📖</text>
+    
+    <circle cx="180" cy="30" r="20" fill="rgba(255,255,255,0.8)"/>
+    <text x="180" y="35" font-family="Arial" font-size="14" fill="#1976D2" text-anchor="middle">🤝</text>
+  </g>
+  
+  <!-- Quote decoration -->
+  <circle cx="50" cy="50" r="15" fill="rgba(255,255,255,0.7)"/>
+  <text x="50" y="58" font-family="Arial" font-size="20" fill="#1976D2" text-anchor="middle">"</text>
+  
+  <circle cx="250" cy="50" r="15" fill="rgba(255,255,255,0.7)"/>
+  <text x="250" y="58" font-family="Arial" font-size="20" fill="#1976D2" text-anchor="middle">"</text>
+  
+  <!-- Name -->
+  <rect x="50" y="250" width="200" height="30" rx="8" fill="rgba(255,255,255,0.9)"/>
+  <text x="150" y="270" font-family="Arial" font-size="14" font-weight="bold" fill="#1976D2" text-anchor="middle">
+    Pastor Emmanuel
+  </text>
+</svg> 

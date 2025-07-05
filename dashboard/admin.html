@@ -1,0 +1,2194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin Dashboard - KBN Financial Boutique. Manage applications, users, content, and system settings.">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; img-src 'self' data: blob:;">
+    <title>Admin Dashboard - KBN Financial Boutique</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/utils.css">
+    
+    <style>
+        /* Modern Admin Dashboard Styles */
+        :root {
+            --admin-primary: #1a73e8;
+            --admin-primary-dark: #1557b0;
+            --admin-secondary: #f8f9fa;
+            --admin-accent: #34a853;
+            --admin-danger: #ea4335;
+            --admin-warning: #fbbc04;
+            --admin-info: #4285f4;
+            --admin-dark: #202124;
+            --admin-light: #ffffff;
+            --admin-border: #e8eaed;
+            --admin-text: #3c4043;
+            --admin-text-secondary: #5f6368;
+            --admin-sidebar-width: 280px;
+            --admin-header-height: 72px;
+            --admin-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --admin-shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.15);
+            --admin-border-radius: 12px;
+            --admin-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--admin-secondary);
+            color: var(--admin-text);
+            line-height: 1.6;
+        }
+
+        .admin-dashboard {
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* Sidebar */
+        .admin-sidebar {
+            width: var(--admin-sidebar-width);
+            background: var(--admin-light);
+            border-right: 1px solid var(--admin-border);
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            z-index: 1000;
+            transition: var(--admin-transition);
+            box-shadow: var(--admin-shadow);
+        }
+
+        .sidebar-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--admin-border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sidebar-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--admin-dark);
+        }
+
+        .sidebar-nav {
+            padding: 16px 0;
+        }
+
+        .sidebar-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 24px;
+            color: var(--admin-text-secondary);
+            text-decoration: none;
+            transition: var(--admin-transition);
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar-nav-item:hover {
+            background: rgba(26, 115, 232, 0.08);
+            color: var(--admin-primary);
+        }
+
+        .sidebar-nav-item.active {
+            background: rgba(26, 115, 232, 0.12);
+            color: var(--admin-primary);
+            border-left-color: var(--admin-primary);
+            font-weight: 500;
+        }
+
+        .sidebar-nav-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .sidebar-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px;
+            border-top: 1px solid var(--admin-border);
+        }
+
+        /* Main Content */
+        .admin-main {
+            flex: 1;
+            margin-left: var(--admin-sidebar-width);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .admin-header {
+            background: var(--admin-light);
+            border-bottom: 1px solid var(--admin-border);
+            height: var(--admin-header-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-left h1 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--admin-dark);
+        }
+
+        .header-subtitle {
+            font-size: 14px;
+            color: var(--admin-text-secondary);
+            margin-top: 2px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .notification-btn {
+            position: relative;
+            padding: 8px;
+            border-radius: 8px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            transition: var(--admin-transition);
+        }
+
+        .notification-btn:hover {
+            background: var(--admin-secondary);
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background: var(--admin-danger);
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            min-width: 18px;
+            text-align: center;
+        }
+
+        .admin-content {
+            flex: 1;
+            padding: 32px;
+            background: var(--admin-secondary);
+        }
+
+        /* Dashboard Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: var(--admin-light);
+            border-radius: var(--admin-border-radius);
+            padding: 24px;
+            box-shadow: var(--admin-shadow);
+            transition: var(--admin-transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--admin-shadow-hover);
+        }
+
+        .stat-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .stat-card-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--admin-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .stat-card-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--admin-dark);
+            margin-bottom: 4px;
+        }
+
+        .stat-card-change {
+            font-size: 12px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .stat-card-change.positive {
+            color: var(--admin-accent);
+        }
+
+        .stat-card-change.negative {
+            color: var(--admin-danger);
+        }
+
+        /* Modern Data Tables */
+        .data-table {
+            background: var(--admin-light);
+            border-radius: var(--admin-border-radius);
+            box-shadow: var(--admin-shadow);
+            overflow: hidden;
+        }
+
+        .data-table-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--admin-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .data-table-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--admin-dark);
+        }
+
+        .data-table-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .search-input {
+            padding: 8px 12px 8px 40px;
+            border: 1px solid var(--admin-border);
+            border-radius: 8px;
+            background: var(--admin-secondary);
+            font-size: 14px;
+            width: 280px;
+            position: relative;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--admin-primary);
+            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--admin-transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--admin-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--admin-primary-dark);
+        }
+
+        .btn-secondary {
+            background: var(--admin-secondary);
+            color: var(--admin-text);
+            border: 1px solid var(--admin-border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--admin-border);
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table thead {
+            background: var(--admin-secondary);
+        }
+
+        .table th {
+            padding: 16px 24px;
+            text-align: left;
+            font-weight: 500;
+            color: var(--admin-text-secondary);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .table td {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--admin-border);
+        }
+
+        .table tbody tr:hover {
+            background: var(--admin-secondary);
+        }
+
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-pending {
+            background: rgba(251, 188, 4, 0.1);
+            color: #b8860b;
+        }
+
+        .status-approved {
+            background: rgba(52, 168, 83, 0.1);
+            color: #137333;
+        }
+
+        .status-rejected {
+            background: rgba(234, 67, 53, 0.1);
+            color: #d93025;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .action-btn {
+            padding: 4px 8px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: var(--admin-transition);
+        }
+
+        .action-btn-view {
+            background: rgba(66, 133, 244, 0.1);
+            color: var(--admin-info);
+        }
+
+        .action-btn-edit {
+            background: rgba(52, 168, 83, 0.1);
+            color: var(--admin-accent);
+        }
+
+        .action-btn-delete {
+            background: rgba(234, 67, 53, 0.1);
+            color: var(--admin-danger);
+        }
+
+        .action-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Dashboard Sections */
+        .dashboard-section {
+            display: none;
+        }
+
+        .dashboard-section.active {
+            display: block;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .dashboard-card {
+            background: var(--admin-light);
+            border-radius: var(--admin-border-radius);
+            box-shadow: var(--admin-shadow);
+            overflow: hidden;
+        }
+
+        .dashboard-card-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--admin-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .dashboard-card-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--admin-dark);
+        }
+
+        .dashboard-card-body {
+            padding: 24px;
+        }
+
+        .recent-activity {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 8px;
+            transition: var(--admin-transition);
+        }
+
+        .activity-item:hover {
+            background: var(--admin-secondary);
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-title {
+            font-weight: 500;
+            color: var(--admin-dark);
+            margin-bottom: 2px;
+        }
+
+        .activity-subtitle {
+            font-size: 12px;
+            color: var(--admin-text-secondary);
+        }
+
+        .activity-time {
+            font-size: 12px;
+            color: var(--admin-text-secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .admin-sidebar {
+                transform: translateX(-100%);
+            }
+            
+            .admin-sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .admin-main {
+                margin-left: 0;
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .admin-content {
+                padding: 16px;
+            }
+            
+            .data-table-header {
+                flex-direction: column;
+                gap: 16px;
+                align-items: stretch;
+            }
+            
+            .data-table-actions {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .search-input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="admin-dashboard">
+    <div class="admin-dashboard">
+        <!-- Modern Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/img/kbn-logo.png" alt="KBN" class="sidebar-logo">
+                <div class="sidebar-title">KBN Admin</div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="sidebar-nav-item active" data-section="overview">
+                    <i data-feather="home" class="sidebar-nav-icon"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="sidebar-nav-item" data-section="applications">
+                    <i data-feather="file-text" class="sidebar-nav-icon"></i>
+                    <span>Applications</span>
+                </a>
+                <a href="#" class="sidebar-nav-item" data-section="users">
+                    <i data-feather="users" class="sidebar-nav-icon"></i>
+                    <span>Users</span>
+                </a>
+                <a href="#" class="sidebar-nav-item" data-section="content">
+                    <i data-feather="edit-3" class="sidebar-nav-icon"></i>
+                    <span>Content</span>
+                </a>
+                <a href="#" class="sidebar-nav-item" data-section="analytics">
+                    <i data-feather="bar-chart-2" class="sidebar-nav-icon"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#" class="sidebar-nav-item" data-section="communications">
+                    <i data-feather="mail" class="sidebar-nav-icon"></i>
+                    <span>Communications</span>
+                </a>
+                <a href="#" class="sidebar-nav-item" data-section="settings">
+                    <i data-feather="settings" class="sidebar-nav-icon"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button class="btn btn-secondary" onclick="logout()">
+                    <i data-feather="log-out"></i>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Header -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <h1>Admin Dashboard</h1>
+                    <div class="header-subtitle">Welcome back, Administrator</div>
+                </div>
+                <div class="header-right">
+                    <button class="notification-btn">
+                        <i data-feather="bell"></i>
+                        <span class="notification-badge">5</span>
+                    </button>
+                    <button class="btn btn-primary">
+                        <i data-feather="plus"></i>
+                        Quick Action
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="admin-content">
+                <!-- Overview Section -->
+                <section class="dashboard-section active" id="overview">
+                    <!-- Stats Grid -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <div class="stat-card-title">Pending Applications</div>
+                                <div class="stat-card-icon" style="background: rgba(251, 188, 4, 0.1); color: #b8860b;">
+                                    <i data-feather="file-text"></i>
+                                </div>
+                            </div>
+                            <div class="stat-card-value">47</div>
+                            <div class="stat-card-change positive">
+                                <i data-feather="arrow-up"></i>
+                                +8.2% from last month
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <div class="stat-card-title">Active Members</div>
+                                <div class="stat-card-icon" style="background: rgba(52, 168, 83, 0.1); color: #137333;">
+                                    <i data-feather="users"></i>
+                                </div>
+                            </div>
+                            <div class="stat-card-value">284</div>
+                            <div class="stat-card-change positive">
+                                <i data-feather="arrow-up"></i>
+                                +12.5% from last month
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <div class="stat-card-title">Total Loans</div>
+                                <div class="stat-card-icon" style="background: rgba(66, 133, 244, 0.1); color: var(--admin-info);">
+                                    <i data-feather="dollar-sign"></i>
+                                </div>
+                            </div>
+                            <div class="stat-card-value">15.2M</div>
+                            <div class="stat-card-change positive">
+                                <i data-feather="arrow-up"></i>
+                                +5.8% from last month
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <div class="stat-card-title">Approval Rate</div>
+                                <div class="stat-card-icon" style="background: rgba(234, 67, 53, 0.1); color: var(--admin-danger);">
+                                    <i data-feather="trending-up"></i>
+                                </div>
+                            </div>
+                            <div class="stat-card-value">94.3%</div>
+                            <div class="stat-card-change positive">
+                                <i data-feather="arrow-up"></i>
+                                +2.1% from last month
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dashboard Grid -->
+                    <div class="dashboard-grid">
+                        <div class="dashboard-card">
+                            <div class="dashboard-card-header">
+                                <div class="dashboard-card-title">Recent Applications</div>
+                                <button class="btn btn-secondary" onclick="showSection('applications')">
+                                    View All
+                                </button>
+                            </div>
+                            <div class="dashboard-card-body">
+                                <div class="recent-activity">
+                                    <div class="activity-item">
+                                        <div class="activity-icon" style="background: rgba(66, 133, 244, 0.1); color: var(--admin-info);">
+                                            <i data-feather="file-text"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">John Uwimana</div>
+                                            <div class="activity-subtitle">Kingdom Capital Fund - 2.5M RWF</div>
+                                        </div>
+                                        <div class="activity-time">2h ago</div>
+                                        <span class="status-badge status-pending">Pending</span>
+                                    </div>
+                                    
+                                    <div class="activity-item">
+                                        <div class="activity-icon" style="background: rgba(52, 168, 83, 0.1); color: var(--admin-accent);">
+                                            <i data-feather="users"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">Grace Church</div>
+                                            <div class="activity-subtitle">Membership Application</div>
+                                        </div>
+                                        <div class="activity-time">5h ago</div>
+                                        <span class="status-badge status-approved">Approved</span>
+                                    </div>
+                                    
+                                    <div class="activity-item">
+                                        <div class="activity-icon" style="background: rgba(251, 188, 4, 0.1); color: #b8860b;">
+                                            <i data-feather="dollar-sign"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">Peter Mugisha</div>
+                                            <div class="activity-subtitle">Kingdom Impact Fund - 1M RWF</div>
+                                        </div>
+                                        <div class="activity-time">1d ago</div>
+                                        <span class="status-badge status-pending">Under Review</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <div class="dashboard-card-header">
+                                <div class="dashboard-card-title">System Health</div>
+                            </div>
+                            <div class="dashboard-card-body">
+                                <div class="recent-activity">
+                                    <div class="activity-item">
+                                        <div class="activity-icon" style="background: rgba(52, 168, 83, 0.1); color: var(--admin-accent);">
+                                            <i data-feather="server"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">Server Status</div>
+                                            <div class="activity-subtitle">All systems operational</div>
+                                        </div>
+                                        <span class="status-badge status-approved">Online</span>
+                                    </div>
+                                    
+                                    <div class="activity-item">
+                                        <div class="activity-icon" style="background: rgba(52, 168, 83, 0.1); color: var(--admin-accent);">
+                                            <i data-feather="database"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">Database</div>
+                                            <div class="activity-subtitle">Connected and synced</div>
+                                        </div>
+                                        <span class="status-badge status-approved">Connected</span>
+                                    </div>
+                                    
+                                    <div class="activity-item">
+                                        <div class="activity-icon" style="background: rgba(251, 188, 4, 0.1); color: #b8860b;">
+                                            <i data-feather="shield"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">Security</div>
+                                            <div class="activity-subtitle">2 alerts require attention</div>
+                                        </div>
+                                        <span class="status-badge status-pending">Alerts</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Applications Section -->
+                <section class="dashboard-section" id="applications">
+                    <div class="data-table">
+                        <div class="data-table-header">
+                            <div class="data-table-title">Application Management</div>
+                            <div class="data-table-actions">
+                                <input type="text" class="search-input" placeholder="Search applications...">
+                                <button class="btn btn-secondary">
+                                    <i data-feather="download"></i>
+                                    Export
+                                </button>
+                                <button class="btn btn-primary">
+                                    <i data-feather="plus"></i>
+                                    Add New
+                                </button>
+                            </div>
+                        </div>
+                        <div class="data-table-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Applicant</th>
+                                        <th>Type</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <div style="font-weight: 500;">John Uwimana</div>
+                                                <div style="font-size: 12px; color: var(--admin-text-secondary);">john.uwimana@gmail.com</div>
+                                            </div>
+                                        </td>
+                                        <td>Kingdom Capital Fund</td>
+                                        <td>2,500,000 RWF</td>
+                                        <td><span class="status-badge status-pending">Pending</span></td>
+                                        <td>Mar 20, 2024</td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="action-btn action-btn-view">
+                                                    <i data-feather="eye"></i>
+                                                </button>
+                                                <button class="action-btn action-btn-edit">
+                                                    <i data-feather="edit"></i>
+                                                </button>
+                                                <button class="action-btn action-btn-delete">
+                                                    <i data-feather="trash-2"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <div style="font-weight: 500;">Grace Church</div>
+                                                <div style="font-size: 12px; color: var(--admin-text-secondary);">info@gracechurch.rw</div>
+                                            </div>
+                                        </td>
+                                        <td>Membership</td>
+                                        <td>-</td>
+                                        <td><span class="status-badge status-approved">Approved</span></td>
+                                        <td>Mar 19, 2024</td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="action-btn action-btn-view">
+                                                    <i data-feather="eye"></i>
+                                                </button>
+                                                <button class="action-btn action-btn-edit">
+                                                    <i data-feather="edit"></i>
+                                                </button>
+                                                <button class="action-btn action-btn-delete">
+                                                    <i data-feather="trash-2"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <div style="font-weight: 500;">Peter Mugisha</div>
+                                                <div style="font-size: 12px; color: var(--admin-text-secondary);">peter.mugisha@company.com</div>
+                                            </div>
+                                        </td>
+                                        <td>Kingdom Impact Fund</td>
+                                        <td>1,000,000 RWF</td>
+                                        <td><span class="status-badge status-pending">Under Review</span></td>
+                                        <td>Mar 18, 2024</td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="action-btn action-btn-view">
+                                                    <i data-feather="eye"></i>
+                                                </button>
+                                                <button class="action-btn action-btn-edit">
+                                                    <i data-feather="edit"></i>
+                                                </button>
+                                                <button class="action-btn action-btn-delete">
+                                                    <i data-feather="trash-2"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Users Section -->
+                <section class="dashboard-section" id="users">
+                    <div class="data-table">
+                        <div class="data-table-header">
+                            <div class="data-table-title">User Management</div>
+                            <div class="data-table-actions">
+                                <input type="text" class="search-input" placeholder="Search users...">
+                                <button class="btn btn-secondary">
+                                    <i data-feather="download"></i>
+                                    Export
+                                </button>
+                                <button class="btn btn-primary">
+                                    <i data-feather="user-plus"></i>
+                                    Add User
+                                </button>
+                            </div>
+                        </div>
+                        <div class="data-table-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Role</th>
+                                        <th>Status</th>
+                                        <th>Last Login</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <div style="font-weight: 500;">John Doe</div>
+                                                <div style="font-size: 12px; color: var(--admin-text-secondary);">john.doe@kbn.com</div>
+                                            </div>
+                                        </td>
+                                        <td>Member</td>
+                                        <td><span class="status-badge status-approved">Active</span></td>
+                                        <td>Mar 20, 2024</td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="action-btn action-btn-view">
+                                                    <i data-feather="eye"></i>
+                                                </button>
+                                                <button class="action-btn action-btn-edit">
+                                                    <i data-feather="edit"></i>
+                                                </button>
+                                                <button class="action-btn action-btn-delete">
+                                                    <i data-feather="trash-2"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <div style="font-weight: 500;">Admin User</div>
+                                                <div style="font-size: 12px; color: var(--admin-text-secondary);">admin@kbn.com</div>
+                                            </div>
+                                        </td>
+                                        <td>Administrator</td>
+                                        <td><span class="status-badge status-approved">Active</span></td>
+                                        <td>Mar 20, 2024</td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="action-btn action-btn-view">
+                                                    <i data-feather="eye"></i>
+                                                </button>
+                                                <button class="action-btn action-btn-edit">
+                                                    <i data-feather="edit"></i>
+                                                </button>
+                                                <button class="action-btn action-btn-delete">
+                                                    <i data-feather="trash-2"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Content Section -->
+                <section class="dashboard-section" id="content">
+                    <div class="dashboard-grid">
+                        <div class="dashboard-card">
+                            <div class="dashboard-card-header">
+                                <div class="dashboard-card-title">Blog Posts</div>
+                                <button class="btn btn-primary" onclick="showCreateBlogPost()">
+                                    <i data-feather="plus"></i>
+                                    New Post
+                                </button>
+                            </div>
+                            <div class="dashboard-card-body">
+                                <div class="recent-activity">
+                                    <div class="activity-item">
+                                        <div class="activity-icon" style="background: rgba(66, 133, 244, 0.1); color: var(--admin-info);">
+                                            <i data-feather="file-text"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">Building Kingdom Businesses in Rwanda</div>
+                                            <div class="activity-subtitle">Published</div>
+                                        </div>
+                                        <div class="activity-time">Mar 15, 2024</div>
+                                        <span class="status-badge status-approved">Active</span>
+                                    </div>
+                                    
+                                    <div class="activity-item">
+                                        <div class="activity-icon" style="background: rgba(251, 188, 4, 0.1); color: #b8860b;">
+                                            <i data-feather="edit"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">Financial Stewardship for Christians</div>
+                                            <div class="activity-subtitle">Draft</div>
+                                        </div>
+                                        <div class="activity-time">Mar 14, 2024</div>
+                                        <span class="status-badge status-pending">Draft</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <div class="dashboard-card-header">
+                                <div class="dashboard-card-title">Quick Actions</div>
+                            </div>
+                            <div class="dashboard-card-body">
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <button class="btn btn-secondary" onclick="editHomepage()">
+                                        <i data-feather="edit"></i>
+                                        Edit Homepage
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="updateImages()">
+                                        <i data-feather="image"></i>
+                                        Update Images
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="siteSettings()">
+                                        <i data-feather="settings"></i>
+                                        Site Settings
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Analytics Section -->
+                <section class="dashboard-section" id="analytics">
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <div class="dashboard-card-title">Analytics Dashboard</div>
+                        </div>
+                        <div class="dashboard-card-body">
+                            <div style="text-align: center; padding: 60px 0; color: var(--admin-text-secondary);">
+                                <i data-feather="bar-chart-2" style="width: 48px; height: 48px; margin-bottom: 16px;"></i>
+                                <div>Analytics charts will be integrated here</div>
+                                <div style="font-size: 14px; margin-top: 8px;">Connect with Google Analytics or Chart.js</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Communications Section -->
+                <section class="dashboard-section" id="communications">
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <div class="dashboard-card-title">Send Announcement</div>
+                        </div>
+                        <div class="dashboard-card-body">
+                            <div style="display: flex; flex-direction: column; gap: 16px;">
+                                <input type="text" class="search-input" placeholder="Subject" style="width: 100%;">
+                                <textarea class="search-input" placeholder="Message" rows="6" style="width: 100%; resize: vertical;"></textarea>
+                                <div style="display: flex; gap: 12px;">
+                                    <button class="btn btn-primary" onclick="sendAnnouncement()">
+                                        <i data-feather="send"></i>
+                                        Send to All
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="saveDraft()">
+                                        <i data-feather="save"></i>
+                                        Save Draft
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section class="dashboard-section" id="settings">
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <div class="dashboard-card-title">System Settings</div>
+                        </div>
+                        <div class="dashboard-card-body">
+                            <div style="display: flex; flex-direction: column; gap: 24px;">
+                                <div>
+                                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">Site Name</label>
+                                    <input type="text" class="search-input" value="KBN Financial Boutique" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">Contact Email</label>
+                                    <input type="email" class="search-input" value="info@kbn.com" style="width: 100%;">
+                                </div>
+                                <div>
+                                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">Maximum Loan Amount</label>
+                                    <input type="number" class="search-input" value="10000000" style="width: 100%;">
+                                </div>
+                                <div style="display: flex; gap: 12px;">
+                                    <button class="btn btn-primary" onclick="saveSettings()">
+                                        <i data-feather="save"></i>
+                                        Save Settings
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="resetSettings()">
+                                        <i data-feather="rotate-ccw"></i>
+                                        Reset
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
+    <script src="../assets/js/blog-creator.js"></script>
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Mock Data
+        const mockApplications = [
+            {
+                id: 'APP001',
+                applicant: 'John Uwimana',
+                email: 'john.uwimana@gmail.com',
+                type: 'Kingdom Capital Fund',
+                amount: '2,500,000 RWF',
+                status: 'pending',
+                date: 'Mar 20, 2024',
+                description: 'Small retail business expansion in Kigali',
+                businessPlan: 'Expanding existing clothing store to include accessories and online sales platform.',
+                creditScore: 750,
+                collateral: 'Property deed for store location',
+                notes: []
+            },
+            {
+                id: 'APP002',
+                applicant: 'Grace Church',
+                email: 'info@gracechurch.rw',
+                type: 'Membership',
+                amount: '-',
+                status: 'approved',
+                date: 'Mar 19, 2024',
+                description: 'Church membership for community programs',
+                businessPlan: 'Developing microfinance program for church members',
+                creditScore: 820,
+                collateral: 'Church property',
+                notes: ['Excellent community standing', 'Strong financial history']
+            },
+            {
+                id: 'APP003',
+                applicant: 'Peter Mugisha',
+                email: 'peter.mugisha@company.com',
+                type: 'Kingdom Impact Fund',
+                amount: '1,000,000 RWF',
+                status: 'under_review',
+                date: 'Mar 18, 2024',
+                description: 'Agricultural cooperative startup',
+                businessPlan: 'Creating cooperative for smallholder farmers in rural areas',
+                creditScore: 680,
+                collateral: 'Equipment and inventory',
+                notes: ['Requires financial review', 'Good business model']
+            }
+        ];
+
+        const mockUsers = [
+            {
+                id: 'USR001',
+                name: 'John Doe',
+                email: 'john.doe@kbn.com',
+                role: 'Member',
+                status: 'active',
+                lastLogin: 'Mar 20, 2024',
+                joinDate: 'Jan 15, 2024'
+            },
+            {
+                id: 'USR002',
+                name: 'Admin User',
+                email: 'admin@kbn.com',
+                role: 'Administrator',
+                status: 'active',
+                lastLogin: 'Mar 20, 2024',
+                joinDate: 'Dec 1, 2023'
+            }
+        ];
+
+        const mockBlogPosts = [
+            {
+                id: 'POST001',
+                title: 'Building Kingdom Businesses in Rwanda',
+                content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+                status: 'published',
+                author: 'Admin',
+                date: 'Mar 15, 2024',
+                category: 'Business',
+                tags: ['kingdom', 'business', 'rwanda']
+            },
+            {
+                id: 'POST002',
+                title: 'Financial Stewardship for Christians',
+                content: 'Draft content about financial stewardship...',
+                status: 'draft',
+                author: 'Admin',
+                date: 'Mar 14, 2024',
+                category: 'Finance',
+                tags: ['stewardship', 'finance', 'christian']
+            }
+        ];
+
+        // Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.sidebar-nav-item');
+            const sections = document.querySelectorAll('.dashboard-section');
+
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all nav items
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    
+                    // Add active class to clicked item
+                    this.classList.add('active');
+                    
+                    // Hide all sections
+                    sections.forEach(section => section.classList.remove('active'));
+                    
+                    // Show target section
+                    const targetSection = this.getAttribute('data-section');
+                    document.getElementById(targetSection).classList.add('active');
+                });
+            });
+
+            // Initialize with mock data
+            loadApplicationsTable();
+            loadUsersTable();
+            initializeEventListeners();
+        });
+
+        // Event Listeners
+        function initializeEventListeners() {
+            // Quick Action button
+            document.querySelector('.header-right .btn-primary').addEventListener('click', showQuickActions);
+            
+            // Notification button
+            document.querySelector('.notification-btn').addEventListener('click', showNotifications);
+            
+            // Search inputs
+            document.querySelectorAll('.search-input').forEach(input => {
+                if (input.placeholder.includes('Search')) {
+                    input.addEventListener('input', handleSearch);
+                }
+            });
+        }
+
+        // Quick Actions Modal
+        function showQuickActions() {
+            const modal = createModal('Quick Actions', `
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+                    <button class="btn btn-primary" onclick="showSection('applications'); closeModal();">
+                        <i data-feather="file-text"></i>
+                        Review Applications
+                    </button>
+                    <button class="btn btn-primary" onclick="showSection('users'); closeModal();">
+                        <i data-feather="user-plus"></i>
+                        Add New User
+                    </button>
+                    <button class="btn btn-primary" onclick="showCreateBlogPost(); closeModal();">
+                        <i data-feather="edit"></i>
+                        Create Blog Post
+                    </button>
+                    <button class="btn btn-primary" onclick="exportData(); closeModal();">
+                        <i data-feather="download"></i>
+                        Export Data
+                    </button>
+                    <button class="btn btn-primary" onclick="sendAnnouncement(); closeModal();">
+                        <i data-feather="mail"></i>
+                        Send Announcement
+                    </button>
+                    <button class="btn btn-primary" onclick="showSection('settings'); closeModal();">
+                        <i data-feather="settings"></i>
+                        System Settings
+                    </button>
+                </div>
+            `);
+            feather.replace();
+        }
+
+        // Notifications
+        function showNotifications() {
+            const modal = createModal('Notifications', `
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                    <div class="activity-item">
+                        <div class="activity-icon" style="background: rgba(234, 67, 53, 0.1); color: var(--admin-danger);">
+                            <i data-feather="alert-circle"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-title">New application requires review</div>
+                            <div class="activity-subtitle">John Uwimana - Kingdom Capital Fund</div>
+                        </div>
+                        <div class="activity-time">2h ago</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon" style="background: rgba(251, 188, 4, 0.1); color: #b8860b;">
+                            <i data-feather="alert-triangle"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-title">System backup completed</div>
+                            <div class="activity-subtitle">All data successfully backed up</div>
+                        </div>
+                        <div class="activity-time">1h ago</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon" style="background: rgba(52, 168, 83, 0.1); color: var(--admin-accent);">
+                            <i data-feather="check-circle"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-title">Grace Church approved</div>
+                            <div class="activity-subtitle">Membership application processed</div>
+                        </div>
+                        <div class="activity-time">3h ago</div>
+                    </div>
+                </div>
+            `);
+            feather.replace();
+        }
+
+        // Application Management
+        function loadApplicationsTable() {
+            const tbody = document.querySelector('#applications tbody');
+            tbody.innerHTML = mockApplications.map(app => `
+                <tr>
+                    <td>
+                        <div>
+                            <div style="font-weight: 500;">${app.applicant}</div>
+                            <div style="font-size: 12px; color: var(--admin-text-secondary);">${app.email}</div>
+                        </div>
+                    </td>
+                    <td>${app.type}</td>
+                    <td>${app.amount}</td>
+                    <td><span class="status-badge status-${app.status.replace('_', '-')}">${app.status.replace('_', ' ').toUpperCase()}</span></td>
+                    <td>${app.date}</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="action-btn action-btn-view" onclick="viewApplication('${app.id}')">
+                                <i data-feather="eye"></i>
+                            </button>
+                            <button class="action-btn action-btn-edit" onclick="reviewApplication('${app.id}')">
+                                <i data-feather="edit"></i>
+                            </button>
+                            <button class="action-btn action-btn-delete" onclick="deleteApplication('${app.id}')">
+                                <i data-feather="trash-2"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+            feather.replace();
+        }
+
+        function viewApplication(id) {
+            const app = mockApplications.find(a => a.id === id);
+            if (!app) return;
+
+            const modal = createModal(`Application Details - ${app.id}`, `
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                    <div>
+                        <h4 style="margin-bottom: 16px; color: var(--admin-dark);">Applicant Information</h4>
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <div><strong>Name:</strong> ${app.applicant}</div>
+                            <div><strong>Email:</strong> ${app.email}</div>
+                            <div><strong>Application Type:</strong> ${app.type}</div>
+                            <div><strong>Amount:</strong> ${app.amount}</div>
+                            <div><strong>Date:</strong> ${app.date}</div>
+                            <div><strong>Status:</strong> <span class="status-badge status-${app.status.replace('_', '-')}">${app.status.replace('_', ' ').toUpperCase()}</span></div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 16px; color: var(--admin-dark);">Business Details</h4>
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <div><strong>Description:</strong> ${app.description}</div>
+                            <div><strong>Business Plan:</strong> ${app.businessPlan}</div>
+                            <div><strong>Credit Score:</strong> ${app.creditScore}</div>
+                            <div><strong>Collateral:</strong> ${app.collateral}</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 24px;">
+                    <h4 style="margin-bottom: 16px; color: var(--admin-dark);">Notes</h4>
+                    <div style="background: var(--admin-secondary); padding: 16px; border-radius: 8px; min-height: 100px;">
+                        ${app.notes.length > 0 ? app.notes.map(note => `<div style="margin-bottom: 8px;">• ${note}</div>`).join('') : 'No notes yet.'}
+                    </div>
+                </div>
+                <div style="margin-top: 24px; display: flex; gap: 12px;">
+                    <button class="btn btn-primary" onclick="reviewApplication('${app.id}'); closeModal();">
+                        <i data-feather="edit"></i>
+                        Review Application
+                    </button>
+                    <button class="btn btn-secondary" onclick="closeModal();">
+                        Close
+                    </button>
+                </div>
+            `, 'large');
+            feather.replace();
+        }
+
+        function reviewApplication(id) {
+            const app = mockApplications.find(a => a.id === id);
+            if (!app) return;
+
+            const modal = createModal(`Review Application - ${app.id}`, `
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
+                    <div>
+                        <h4 style="margin-bottom: 16px; color: var(--admin-dark);">Application Summary</h4>
+                        <div style="background: var(--admin-secondary); padding: 16px; border-radius: 8px;">
+                            <div><strong>${app.applicant}</strong></div>
+                            <div style="color: var(--admin-text-secondary); font-size: 14px;">${app.email}</div>
+                            <div style="margin-top: 12px;"><strong>Type:</strong> ${app.type}</div>
+                            <div><strong>Amount:</strong> ${app.amount}</div>
+                            <div><strong>Credit Score:</strong> ${app.creditScore}</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 16px; color: var(--admin-dark);">Current Status</h4>
+                        <div style="background: var(--admin-secondary); padding: 16px; border-radius: 8px;">
+                            <div>Status: <span class="status-badge status-${app.status.replace('_', '-')}">${app.status.replace('_', ' ').toUpperCase()}</span></div>
+                            <div style="margin-top: 12px;"><strong>Submitted:</strong> ${app.date}</div>
+                            <div><strong>Description:</strong> ${app.description}</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 24px;">
+                    <h4 style="margin-bottom: 16px; color: var(--admin-dark);">Review Decision</h4>
+                    <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                        <label style="display: flex; align-items: center; gap: 8px;">
+                            <input type="radio" name="decision" value="approved" style="margin: 0;">
+                            <span class="status-badge status-approved">APPROVE</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px;">
+                            <input type="radio" name="decision" value="rejected" style="margin: 0;">
+                            <span class="status-badge status-rejected">REJECT</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px;">
+                            <input type="radio" name="decision" value="under_review" style="margin: 0;" checked>
+                            <span class="status-badge status-pending">UNDER REVIEW</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 24px;">
+                    <h4 style="margin-bottom: 16px; color: var(--admin-dark);">Review Notes</h4>
+                    <textarea id="reviewNotes" placeholder="Add your review notes here..." style="width: 100%; height: 120px; padding: 12px; border: 1px solid var(--admin-border); border-radius: 8px; font-family: inherit; resize: vertical;"></textarea>
+                </div>
+
+                <div style="display: flex; gap: 12px;">
+                    <button class="btn btn-primary" onclick="submitReview('${app.id}')">
+                        <i data-feather="check"></i>
+                        Submit Review
+                    </button>
+                    <button class="btn btn-secondary" onclick="closeModal();">
+                        Cancel
+                    </button>
+                </div>
+            `, 'large');
+            feather.replace();
+        }
+
+        function submitReview(id) {
+            const decision = document.querySelector('input[name="decision"]:checked')?.value;
+            const notes = document.getElementById('reviewNotes').value;
+            
+            if (!decision) {
+                alert('Please select a decision');
+                return;
+            }
+
+            // Update mock data
+            const app = mockApplications.find(a => a.id === id);
+            if (app) {
+                app.status = decision;
+                if (notes) {
+                    app.notes.push(`${new Date().toLocaleDateString()}: ${notes}`);
+                }
+            }
+
+            // Refresh table
+            loadApplicationsTable();
+            closeModal();
+            
+            // Show success message
+            showSuccessMessage(`Application ${id} has been updated to ${decision.replace('_', ' ').toUpperCase()}`);
+        }
+
+        function deleteApplication(id) {
+            if (confirm('Are you sure you want to delete this application? This action cannot be undone.')) {
+                const index = mockApplications.findIndex(a => a.id === id);
+                if (index > -1) {
+                    mockApplications.splice(index, 1);
+                    loadApplicationsTable();
+                    showSuccessMessage(`Application ${id} has been deleted`);
+                }
+            }
+        }
+
+        // User Management
+        function loadUsersTable() {
+            const tbody = document.querySelector('#users tbody');
+            tbody.innerHTML = mockUsers.map(user => `
+                <tr>
+                    <td>
+                        <div>
+                            <div style="font-weight: 500;">${user.name}</div>
+                            <div style="font-size: 12px; color: var(--admin-text-secondary);">${user.email}</div>
+                        </div>
+                    </td>
+                    <td>${user.role}</td>
+                    <td><span class="status-badge status-approved">${user.status.toUpperCase()}</span></td>
+                    <td>${user.lastLogin}</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="action-btn action-btn-view" onclick="viewUser('${user.id}')">
+                                <i data-feather="eye"></i>
+                            </button>
+                            <button class="action-btn action-btn-edit" onclick="editUser('${user.id}')">
+                                <i data-feather="edit"></i>
+                            </button>
+                            <button class="action-btn action-btn-delete" onclick="deleteUser('${user.id}')">
+                                <i data-feather="trash-2"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+            feather.replace();
+        }
+
+        function viewUser(id) {
+            const user = mockUsers.find(u => u.id === id);
+            if (!user) return;
+
+            const modal = createModal(`User Details - ${user.name}`, `
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                    <div>
+                        <h4 style="margin-bottom: 16px; color: var(--admin-dark);">User Information</h4>
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <div><strong>Name:</strong> ${user.name}</div>
+                            <div><strong>Email:</strong> ${user.email}</div>
+                            <div><strong>Role:</strong> ${user.role}</div>
+                            <div><strong>Status:</strong> <span class="status-badge status-approved">${user.status.toUpperCase()}</span></div>
+                            <div><strong>Join Date:</strong> ${user.joinDate}</div>
+                            <div><strong>Last Login:</strong> ${user.lastLogin}</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 16px; color: var(--admin-dark);">Activity</h4>
+                        <div style="background: var(--admin-secondary); padding: 16px; border-radius: 8px;">
+                            <div style="margin-bottom: 8px;">• Logged in 15 times this month</div>
+                            <div style="margin-bottom: 8px;">• Last application: Mar 15, 2024</div>
+                            <div style="margin-bottom: 8px;">• Account in good standing</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 24px; display: flex; gap: 12px;">
+                    <button class="btn btn-primary" onclick="editUser('${user.id}'); closeModal();">
+                        <i data-feather="edit"></i>
+                        Edit User
+                    </button>
+                    <button class="btn btn-secondary" onclick="closeModal();">
+                        Close
+                    </button>
+                </div>
+            `);
+            feather.replace();
+        }
+
+        function editUser(id) {
+            const user = mockUsers.find(u => u.id === id);
+            if (!user) return;
+
+            const modal = createModal(`Edit User - ${user.name}`, `
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; font-weight: 500;">Name</label>
+                        <input type="text" id="userName" value="${user.name}" style="width: 100%; padding: 8px 12px; border: 1px solid var(--admin-border); border-radius: 8px;">
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; font-weight: 500;">Email</label>
+                        <input type="email" id="userEmail" value="${user.email}" style="width: 100%; padding: 8px 12px; border: 1px solid var(--admin-border); border-radius: 8px;">
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; font-weight: 500;">Role</label>
+                        <select id="userRole" style="width: 100%; padding: 8px 12px; border: 1px solid var(--admin-border); border-radius: 8px;">
+                            <option value="Member" ${user.role === 'Member' ? 'selected' : ''}>Member</option>
+                            <option value="Administrator" ${user.role === 'Administrator' ? 'selected' : ''}>Administrator</option>
+                            <option value="Moderator" ${user.role === 'Moderator' ? 'selected' : ''}>Moderator</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; font-weight: 500;">Status</label>
+                        <select id="userStatus" style="width: 100%; padding: 8px 12px; border: 1px solid var(--admin-border); border-radius: 8px;">
+                            <option value="active" ${user.status === 'active' ? 'selected' : ''}>Active</option>
+                            <option value="inactive" ${user.status === 'inactive' ? 'selected' : ''}>Inactive</option>
+                            <option value="suspended" ${user.status === 'suspended' ? 'selected' : ''}>Suspended</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="margin-top: 24px; display: flex; gap: 12px;">
+                    <button class="btn btn-primary" onclick="saveUser('${user.id}')">
+                        <i data-feather="save"></i>
+                        Save Changes
+                    </button>
+                    <button class="btn btn-secondary" onclick="closeModal();">
+                        Cancel
+                    </button>
+                </div>
+            `);
+            feather.replace();
+        }
+
+        function saveUser(id) {
+            const user = mockUsers.find(u => u.id === id);
+            if (!user) return;
+
+            user.name = document.getElementById('userName').value;
+            user.email = document.getElementById('userEmail').value;
+            user.role = document.getElementById('userRole').value;
+            user.status = document.getElementById('userStatus').value;
+
+            loadUsersTable();
+            closeModal();
+            showSuccessMessage(`User ${user.name} has been updated`);
+        }
+
+        function deleteUser(id) {
+            if (confirm('Are you sure you want to delete this user? This action cannot be undone.')) {
+                const index = mockUsers.findIndex(u => u.id === id);
+                if (index > -1) {
+                    mockUsers.splice(index, 1);
+                    loadUsersTable();
+                    showSuccessMessage(`User has been deleted`);
+                }
+            }
+        }
+
+        // Blog Post Management
+        function showCreateBlogPost() {
+            const modal = createModal('Create New Blog Post', `
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <!-- Basic Information -->
+                    <div style="background: var(--admin-secondary); padding: 20px; border-radius: 12px;">
+                        <h3 style="margin: 0 0 16px; color: var(--admin-dark);">Basic Information</h3>
+                        <div style="display: flex; flex-direction: column; gap: 16px;">
+                            <div>
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">Blog Post Title</label>
+                                <input type="text" id="postTitle" placeholder="Enter an engaging blog post title..." style="width: 100%; padding: 12px; border: 1px solid var(--admin-border); border-radius: 8px; font-size: 16px;">
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">Subtitle/Description</label>
+                                <input type="text" id="postSubtitle" placeholder="Brief description that appears under the title..." style="width: 100%; padding: 12px; border: 1px solid var(--admin-border); border-radius: 8px;">
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+                                <div>
+                                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">Category</label>
+                                    <select id="postCategory" style="width: 100%; padding: 12px; border: 1px solid var(--admin-border); border-radius: 8px;">
+                                        <option value="Business Development">Business Development</option>
+                                        <option value="Financial Stewardship">Financial Stewardship</option>
+                                        <option value="Community Impact">Community Impact</option>
+                                        <option value="Kingdom Business">Kingdom Business</option>
+                                        <option value="Church Partnership">Church Partnership</option>
+                                        <option value="Success Stories">Success Stories</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">Status</label>
+                                    <select id="postStatus" style="width: 100%; padding: 12px; border: 1px solid var(--admin-border); border-radius: 8px;">
+                                        <option value="draft">Draft</option>
+                                        <option value="published">Published</option>
+                                        <option value="scheduled">Scheduled</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">Author</label>
+                                    <input type="text" id="postAuthor" value="KBN Team" style="width: 100%; padding: 12px; border: 1px solid var(--admin-border); border-radius: 8px;">
+                                </div>
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">Tags (comma separated)</label>
+                                <input type="text" id="postTags" placeholder="kingdom business, rwanda, entrepreneurship, christian finance..." style="width: 100%; padding: 12px; border: 1px solid var(--admin-border); border-radius: 8px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Editor -->
+                    <div style="background: var(--admin-secondary); padding: 20px; border-radius: 12px;">
+                        <h3 style="margin: 0 0 16px; color: var(--admin-dark);">Content Editor</h3>
+                        <div style="display: flex; flex-direction: column; gap: 16px;">
+                            <div>
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">Lead Paragraph (appears highlighted)</label>
+                                <textarea id="postLead" placeholder="Write an engaging opening paragraph that summarizes the main points..." style="width: 100%; height: 80px; padding: 12px; border: 1px solid var(--admin-border); border-radius: 8px; font-family: inherit; resize: vertical;"></textarea>
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">Main Content</label>
+                                <div style="margin-bottom: 8px;">
+                                    <small style="color: var(--admin-text-secondary);">
+                                        <strong>Formatting Guide:</strong> Use ## for main headings, ### for subheadings, **bold text**, *italic text*, 
+                                        - for bullet points, 1. for numbered lists, > for quotes
+                                    </small>
+                                </div>
+                                <textarea id="postContent" placeholder="## Main Section Title
+
+Write your main content here. You can use markdown formatting:
+
+### Subsection
+- Bullet point 1
+- Bullet point 2
+
+> This will appear as a highlighted quote
+
+**Bold text** and *italic text* for emphasis.
+
+## Another Section
+More content here..." style="width: 100%; height: 400px; padding: 12px; border: 1px solid var(--admin-border); border-radius: 8px; font-family: 'Monaco', 'Consolas', monospace; font-size: 14px; line-height: 1.6; resize: vertical;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visual Elements -->
+                    <div style="background: var(--admin-secondary); padding: 20px; border-radius: 12px;">
+                        <h3 style="margin: 0 0 16px; color: var(--admin-dark);">Visual Elements</h3>
+                        <div style="display: flex; flex-direction: column; gap: 16px;">
+                            <div>
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">Featured Header Image</label>
+                                <input type="text" id="postImage" placeholder="Enter image filename (e.g., my-blog-image.svg) - will be saved in assets/img/" style="width: 100%; padding: 12px; border: 1px solid var(--admin-border); border-radius: 8px;">
+                                <small style="color: var(--admin-text-secondary); margin-top: 4px; display: block;">Leave empty to use a default KBN business image</small>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                                <div>
+                                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">Call-to-Action Title</label>
+                                    <input type="text" id="postCTATitle" placeholder="Ready to Start Your Journey?" style="width: 100%; padding: 12px; border: 1px solid var(--admin-border); border-radius: 8px;">
+                                </div>
+                                <div>
+                                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">CTA Description</label>
+                                    <input type="text" id="postCTADesc" placeholder="Join KBN today and transform your business..." style="width: 100%; padding: 12px; border: 1px solid var(--admin-border); border-radius: 8px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+                    <button class="btn btn-primary" onclick="saveBlogPost()">
+                        <i data-feather="save"></i>
+                        Create Blog Post
+                    </button>
+                    <button class="btn btn-secondary" onclick="previewBlogPost()">
+                        <i data-feather="eye"></i>
+                        Preview
+                    </button>
+                    <button class="btn btn-secondary" onclick="showFormattingHelp()">
+                        <i data-feather="help-circle"></i>
+                        Formatting Help
+                    </button>
+                    <button class="btn btn-secondary" onclick="closeModal();">
+                        Cancel
+                    </button>
+                </div>
+            `, 'large');
+            feather.replace();
+        }
+
+        function saveBlogPost() {
+            const title = document.getElementById('postTitle').value;
+            const category = document.getElementById('postCategory').value;
+            const status = document.getElementById('postStatus').value;
+            const tags = document.getElementById('postTags').value.split(',').map(tag => tag.trim());
+            const content = document.getElementById('postContent').value;
+            const image = document.getElementById('postImage').value;
+
+            if (!title || !content) {
+                alert('Please fill in the title and content fields');
+                return;
+            }
+
+            const newPost = {
+                id: `POST${String(mockBlogPosts.length + 1).padStart(3, '0')}`,
+                title,
+                content,
+                status,
+                author: 'Admin',
+                date: new Date().toLocaleDateString(),
+                category,
+                tags,
+                image
+            };
+
+            mockBlogPosts.push(newPost);
+            closeModal();
+            showSuccessMessage(`Blog post "${title}" has been ${status === 'published' ? 'published' : 'saved as draft'}`);
+            
+            // Refresh content section if visible
+            if (document.getElementById('content').classList.contains('active')) {
+                updateContentSection();
+            }
+        }
+
+        function previewBlogPost() {
+            const title = document.getElementById('postTitle').value;
+            const content = document.getElementById('postContent').value;
+            
+            if (!title || !content) {
+                alert('Please fill in the title and content fields to preview');
+                return;
+            }
+
+            const modal = createModal('Blog Post Preview', `
+                <div style="max-width: 800px;">
+                    <h1 style="font-size: 32px; margin-bottom: 16px; color: var(--admin-dark);">${title}</h1>
+                    <div style="margin-bottom: 24px; color: var(--admin-text-secondary);">
+                        By Admin • ${new Date().toLocaleDateString()} • ${document.getElementById('postCategory').value}
+                    </div>
+                    <div style="line-height: 1.8; color: var(--admin-text);">
+                        ${content.replace(/\n/g, '<br>')}
+                    </div>
+                </div>
+                <div style="margin-top: 24px; display: flex; gap: 12px;">
+                    <button class="btn btn-secondary" onclick="closeModal();">
+                        Close Preview
+                    </button>
+                </div>
+            `, 'large');
+        }
+
+        function updateContentSection() {
+            const contentGrid = document.querySelector('#content .dashboard-grid .dashboard-card .dashboard-card-body .recent-activity');
+            if (contentGrid) {
+                contentGrid.innerHTML = mockBlogPosts.map(post => `
+                    <div class="activity-item">
+                        <div class="activity-icon" style="background: rgba(66, 133, 244, 0.1); color: var(--admin-info);">
+                            <i data-feather="${post.status === 'published' ? 'file-text' : 'edit'}"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-title">${post.title}</div>
+                            <div class="activity-subtitle">${post.status === 'published' ? 'Published' : 'Draft'}</div>
+                        </div>
+                        <div class="activity-time">${post.date}</div>
+                        <span class="status-badge status-${post.status === 'published' ? 'approved' : 'pending'}">${post.status.toUpperCase()}</span>
+                    </div>
+                `).join('');
+                feather.replace();
+            }
+        }
+
+        // Content Management Quick Actions
+        function editHomepage() {
+            const modal = createModal('Edit Homepage', `
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; font-weight: 500;">Hero Title</label>
+                        <input type="text" value="Empowering Christian Entrepreneurs in Rwanda" style="width: 100%; padding: 8px 12px; border: 1px solid var(--admin-border); border-radius: 8px;">
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; font-weight: 500;">Hero Subtitle</label>
+                        <textarea style="width: 100%; height: 80px; padding: 12px; border: 1px solid var(--admin-border); border-radius: 8px; resize: vertical;">Join the Kingdom Business Network and access funding, mentorship, and resources to build businesses that honor God and serve communities.</textarea>
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; font-weight: 500;">Featured Services (one per line)</label>
+                        <textarea style="width: 100%; height: 120px; padding: 12px; border: 1px solid var(--admin-border); border-radius: 8px; resize: vertical;">Kingdom Capital Fund
+Kingdom Impact Fund
+Church Partnership Program
+Business Mentorship
+Community Development</textarea>
+                    </div>
+                </div>
+                <div style="margin-top: 24px; display: flex; gap: 12px;">
+                    <button class="btn btn-primary" onclick="saveHomepage()">
+                        <i data-feather="save"></i>
+                        Save Changes
+                    </button>
+                    <button class="btn btn-secondary" onclick="closeModal();">
+                        Cancel
+                    </button>
+                </div>
+            `);
+            feather.replace();
+        }
+
+        function saveHomepage() {
+            closeModal();
+            showSuccessMessage('Homepage has been updated');
+        }
+
+        function updateImages() {
+            const modal = createModal('Update Images', `
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; font-weight: 500;">Hero Image</label>
+                        <input type="file" accept="image/*" style="width: 100%; padding: 8px 12px; border: 1px solid var(--admin-border); border-radius: 8px;">
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; font-weight: 500;">Logo</label>
+                        <input type="file" accept="image/*" style="width: 100%; padding: 8px 12px; border: 1px solid var(--admin-border); border-radius: 8px;">
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; font-weight: 500;">About Us Image</label>
+                        <input type="file" accept="image/*" style="width: 100%; padding: 8px 12px; border: 1px solid var(--admin-border); border-radius: 8px;">
+                    </div>
+                    <div style="background: var(--admin-secondary); padding: 16px; border-radius: 8px;">
+                        <strong>Note:</strong> Recommended image sizes:
+                        <ul style="margin-top: 8px; margin-left: 20px;">
+                            <li>Hero Image: 1920x1080px</li>
+                            <li>Logo: 300x300px</li>
+                            <li>About Us: 800x600px</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="margin-top: 24px; display: flex; gap: 12px;">
+                    <button class="btn btn-primary" onclick="uploadImages()">
+                        <i data-feather="upload"></i>
+                        Upload Images
+                    </button>
+                    <button class="btn btn-secondary" onclick="closeModal();">
+                        Cancel
+                    </button>
+                </div>
+            `);
+            feather.replace();
+        }
+
+        function uploadImages() {
+            closeModal();
+            showSuccessMessage('Images have been uploaded successfully');
+        }
+
+        function siteSettings() {
+            showSection('settings');
+        }
+
+        function saveSettings() {
+            // Get form values
+            const siteName = document.querySelector('#settings input[type="text"]').value;
+            const contactEmail = document.querySelector('#settings input[type="email"]').value;
+            const maxLoanAmount = document.querySelector('#settings input[type="number"]').value;
+            
+            // Show success message
+            showSuccessMessage('Settings have been saved successfully');
+            
+            // Here you would typically send this data to your backend
+            console.log('Settings saved:', { siteName, contactEmail, maxLoanAmount });
+        }
+
+        function resetSettings() {
+            if (confirm('Are you sure you want to reset all settings to default values?')) {
+                // Reset form values
+                document.querySelector('#settings input[type="text"]').value = 'KBN Financial Boutique';
+                document.querySelector('#settings input[type="email"]').value = 'info@kbn.com';
+                document.querySelector('#settings input[type="number"]').value = '10000000';
+                
+                showSuccessMessage('Settings have been reset to default values');
+            }
+        }
+
+        function saveDraft() {
+            // Get form values
+            const subject = document.querySelector('#communications input[type="text"]').value;
+            const message = document.querySelector('#communications textarea').value;
+            
+            if (!subject.trim()) {
+                alert('Please enter a subject for your announcement');
+                return;
+            }
+            
+            if (!message.trim()) {
+                alert('Please enter a message for your announcement');
+                return;
+            }
+            
+            // Show success message
+            showSuccessMessage('Announcement has been saved as draft');
+            
+            // Here you would typically send this data to your backend
+            console.log('Draft saved:', { subject, message });
+        }
+
+        // Utility Functions
+        function createModal(title, content, size = 'normal') {
+            // Remove existing modal
+            const existingModal = document.querySelector('.modal-overlay');
+            if (existingModal) {
+                existingModal.remove();
+            }
+
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 2000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+            `;
+
+            const modalWidth = size === 'large' ? '90%' : size === 'small' ? '400px' : '600px';
+            const maxWidth = size === 'large' ? '1200px' : size === 'small' ? '400px' : '800px';
+
+            modal.innerHTML = `
+                <div class="modal-content" style="
+                    background: white;
+                    border-radius: 16px;
+                    padding: 32px;
+                    width: ${modalWidth};
+                    max-width: ${maxWidth};
+                    max-height: 90vh;
+                    overflow-y: auto;
+                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+                ">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--admin-border);">
+                        <h2 style="margin: 0; color: var(--admin-dark); font-size: 24px; font-weight: 600;">${title}</h2>
+                        <button onclick="closeModal()" style="background: none; border: none; font-size: 24px; cursor: pointer; color: var(--admin-text-secondary); padding: 4px;">×</button>
+                    </div>
+                    <div>${content}</div>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            // Close on backdrop click
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            return modal;
+        }
+
+        function closeModal() {
+            const modal = document.querySelector('.modal-overlay');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        function showSuccessMessage(message) {
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: var(--admin-accent);
+                color: white;
+                padding: 16px 24px;
+                border-radius: 8px;
+                box-shadow: var(--admin-shadow);
+                z-index: 3000;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                animation: slideInRight 0.3s ease-out;
+            `;
+            toast.innerHTML = `
+                <i data-feather="check-circle" style="width: 20px; height: 20px;"></i>
+                ${message}
+            `;
+
+            document.body.appendChild(toast);
+            feather.replace();
+
+            setTimeout(() => {
+                toast.style.animation = 'slideOutRight 0.3s ease-out forwards';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        function handleSearch(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const section = e.target.closest('.dashboard-section').id;
+            
+            if (section === 'applications') {
+                const rows = document.querySelectorAll('#applications tbody tr');
+                rows.forEach(row => {
+                    const text = row.textContent.toLowerCase();
+                    row.style.display = text.includes(searchTerm) ? '' : 'none';
+                });
+            } else if (section === 'users') {
+                const rows = document.querySelectorAll('#users tbody tr');
+                rows.forEach(row => {
+                    const text = row.textContent.toLowerCase();
+                    row.style.display = text.includes(searchTerm) ? '' : 'none';
+                });
+            }
+        }
+
+        function exportData() {
+            showSuccessMessage('Data export has been prepared and will be downloaded shortly');
+        }
+
+        function sendAnnouncement() {
+            // Get form values
+            const subject = document.querySelector('#communications input[type="text"]').value;
+            const message = document.querySelector('#communications textarea').value;
+            
+            if (!subject.trim()) {
+                alert('Please enter a subject for your announcement');
+                return;
+            }
+            
+            if (!message.trim()) {
+                alert('Please enter a message for your announcement');
+                return;
+            }
+            
+            if (confirm('Are you sure you want to send this announcement to all users?')) {
+                // Show success message
+                showSuccessMessage('Announcement has been sent to all users');
+                
+                // Clear form
+                document.querySelector('#communications input[type="text"]').value = '';
+                document.querySelector('#communications textarea').value = '';
+                
+                // Here you would typically send this data to your backend
+                console.log('Announcement sent:', { subject, message });
+            }
+        }
+
+        // Utility functions
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.dashboard-section');
+            const navItems = document.querySelectorAll('.sidebar-nav-item');
+            
+            sections.forEach(section => section.classList.remove('active'));
+            navItems.forEach(nav => nav.classList.remove('active'));
+            
+            document.getElementById(sectionId).classList.add('active');
+            document.querySelector(`[data-section="${sectionId}"]`).classList.add('active');
+        }
+
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                sessionStorage.removeItem('kbn_user');
+                window.location.href = '../login.html';
+            }
+        }
+
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html> 

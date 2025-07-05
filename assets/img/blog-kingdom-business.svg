@@ -1,0 +1,122 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E0F6FF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="buildingGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#357ABD;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="groundGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8FBC8F;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#228B22;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="crossGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky Background -->
+  <rect width="800" height="300" fill="url(#skyGradient)"/>
+  
+  <!-- Mountains in background -->
+  <polygon points="0,250 150,180 300,220 450,160 600,200 800,170 800,300 0,300" fill="#87CEEB" opacity="0.6"/>
+  
+  <!-- Ground -->
+  <rect x="0" y="300" width="800" height="100" fill="url(#groundGradient)"/>
+  
+  <!-- Modern building (representing Kingdom business) -->
+  <rect x="200" y="150" width="120" height="150" fill="url(#buildingGradient)" rx="5"/>
+  <rect x="210" y="160" width="15" height="15" fill="#ffffff" opacity="0.8"/>
+  <rect x="235" y="160" width="15" height="15" fill="#ffffff" opacity="0.8"/>
+  <rect x="260" y="160" width="15" height="15" fill="#ffffff" opacity="0.8"/>
+  <rect x="285" y="160" width="15" height="15" fill="#ffffff" opacity="0.8"/>
+  <rect x="210" y="185" width="15" height="15" fill="#ffffff" opacity="0.8"/>
+  <rect x="235" y="185" width="15" height="15" fill="#ffffff" opacity="0.8"/>
+  <rect x="260" y="185" width="15" height="15" fill="#ffffff" opacity="0.8"/>
+  <rect x="285" y="185" width="15" height="15" fill="#ffffff" opacity="0.8"/>
+  <rect x="210" y="210" width="15" height="15" fill="#ffffff" opacity="0.8"/>
+  <rect x="235" y="210" width="15" height="15" fill="#ffffff" opacity="0.8"/>
+  <rect x="260" y="210" width="15" height="15" fill="#ffffff" opacity="0.8"/>
+  <rect x="285" y="210" width="15" height="15" fill="#ffffff" opacity="0.8"/>
+  
+  <!-- Church building -->
+  <rect x="380" y="180" width="80" height="120" fill="#8B4513" rx="3"/>
+  <polygon points="380,180 420,140 460,180" fill="#A0522D"/>
+  
+  <!-- Cross on church -->
+  <rect x="418" y="145" width="4" height="20" fill="url(#crossGradient)"/>
+  <rect x="412" y="150" width="16" height="4" fill="url(#crossGradient)"/>
+  
+  <!-- Church windows -->
+  <rect x="390" y="190" width="12" height="18" fill="#FFD700" opacity="0.9" rx="6"/>
+  <rect x="408" y="190" width="12" height="18" fill="#FFD700" opacity="0.9" rx="6"/>
+  <rect x="426" y="190" width="12" height="18" fill="#FFD700" opacity="0.9" rx="6"/>
+  <rect x="444" y="190" width="12" height="18" fill="#FFD700" opacity="0.9" rx="6"/>
+  
+  <!-- Church door -->
+  <rect x="415" y="270" width="15" height="30" fill="#8B4513" rx="7"/>
+  
+  <!-- Small businesses/shops -->
+  <rect x="100" y="220" width="60" height="80" fill="#CD853F" rx="3"/>
+  <rect x="110" y="230" width="40" height="25" fill="#87CEEB" opacity="0.7"/>
+  <rect x="120" y="270" width="20" height="30" fill="#8B4513"/>
+  
+  <rect x="500" y="210" width="70" height="90" fill="#DEB887" rx="3"/>
+  <rect x="510" y="220" width="50" height="30" fill="#87CEEB" opacity="0.7"/>
+  <rect x="525" y="270" width="20" height="30" fill="#8B4513"/>
+  
+  <!-- Trees -->
+  <circle cx="70" cy="280" r="25" fill="#228B22"/>
+  <rect x="67" y="280" width="6" height="20" fill="#8B4513"/>
+  
+  <circle cx="600" cy="270" r="20" fill="#228B22"/>
+  <rect x="597" y="270" width="6" height="20" fill="#8B4513"/>
+  
+  <circle cx="720" cy="285" r="18" fill="#228B22"/>
+  <rect x="717" y="285" width="6" height="15" fill="#8B4513"/>
+  
+  <!-- People silhouettes (representing community) -->
+  <circle cx="150" cy="285" r="8" fill="#2F4F4F"/>
+  <rect x="147" y="293" width="6" height="12" fill="#2F4F4F"/>
+  
+  <circle cx="170" cy="285" r="8" fill="#2F4F4F"/>
+  <rect x="167" y="293" width="6" height="12" fill="#2F4F4F"/>
+  
+  <circle cx="550" cy="285" r="8" fill="#2F4F4F"/>
+  <rect x="547" y="293" width="6" height="12" fill="#2F4F4F"/>
+  
+  <!-- Sun with rays -->
+  <circle cx="680" cy="80" r="30" fill="#FFD700" opacity="0.9"/>
+  <line x1="680" y1="30" x2="680" y2="45" stroke="#FFD700" stroke-width="3" opacity="0.7"/>
+  <line x1="720" y1="50" x2="710" y2="60" stroke="#FFD700" stroke-width="3" opacity="0.7"/>
+  <line x1="730" y1="80" x2="715" y2="80" stroke="#FFD700" stroke-width="3" opacity="0.7"/>
+  <line x1="720" y1="110" x2="710" y2="100" stroke="#FFD700" stroke-width="3" opacity="0.7"/>
+  <line x1="680" y1="130" x2="680" y2="115" stroke="#FFD700" stroke-width="3" opacity="0.7"/>
+  <line x1="640" y1="110" x2="650" y2="100" stroke="#FFD700" stroke-width="3" opacity="0.7"/>
+  <line x1="630" y1="80" x2="645" y2="80" stroke="#FFD700" stroke-width="3" opacity="0.7"/>
+  <line x1="640" y1="50" x2="650" y2="60" stroke="#FFD700" stroke-width="3" opacity="0.7"/>
+  
+  <!-- Connecting lines (representing network/community) -->
+  <line x1="260" y1="225" x2="380" y2="240" stroke="#34A853" stroke-width="2" opacity="0.6" stroke-dasharray="5,5"/>
+  <line x1="420" y1="240" x2="500" y2="255" stroke="#34A853" stroke-width="2" opacity="0.6" stroke-dasharray="5,5"/>
+  <line x1="160" y1="260" x2="200" y2="275" stroke="#34A853" stroke-width="2" opacity="0.6" stroke-dasharray="5,5"/>
+  
+  <!-- Title text area (subtle background) -->
+  <rect x="50" y="320" width="700" height="60" fill="#ffffff" opacity="0.9" rx="10"/>
+  
+  <!-- Rwanda flag colors accent -->
+  <rect x="50" y="380" width="700" height="4" fill="#20603D"/>
+  <rect x="50" y="384" width="700" height="4" fill="#FAD201"/>
+  <rect x="50" y="388" width="700" height="4" fill="#00A1DE"/>
+  
+  <!-- Subtle geometric pattern overlay -->
+  <circle cx="100" cy="100" r="3" fill="#ffffff" opacity="0.3"/>
+  <circle cx="140" cy="120" r="2" fill="#ffffff" opacity="0.3"/>
+  <circle cx="180" cy="90" r="2.5" fill="#ffffff" opacity="0.3"/>
+  <circle cx="600" cy="120" r="3" fill="#ffffff" opacity="0.3"/>
+  <circle cx="640" cy="140" r="2" fill="#ffffff" opacity="0.3"/>
+  <circle cx="580" cy="160" r="2.5" fill="#ffffff" opacity="0.3"/>
+</svg> 

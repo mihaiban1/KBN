@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="stewardshipGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#388E3C"/>
+      <stop offset="100%" style="stop-color:#4CAF50"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#stewardshipGrad)"/>
+  
+  <!-- Overlay pattern -->
+  <circle cx="50" cy="50" r="30" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="350" cy="250" r="25" fill="rgba(255,255,255,0.08)"/>
+  
+  <!-- Title -->
+  <text x="200" y="40" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">
+    Financial Stewardship
+  </text>
+  
+  <!-- Central stewardship symbol -->
+  <g transform="translate(170, 80)">
+    <!-- Stewardship scales -->
+    <rect x="25" y="40" width="10" height="30" fill="rgba(255,255,255,0.2)"/>
+    <ellipse cx="20" cy="30" rx="15" ry="8" fill="rgba(255,255,255,0.15)"/>
+    <ellipse cx="40" cy="30" rx="15" ry="8" fill="rgba(255,255,255,0.15)"/>
+    <line x1="5" y1="30" x2="55" y2="30" stroke="white" stroke-width="2"/>
+    <!-- Balance beam -->
+    <circle cx="30" cy="30" r="3" fill="white"/>
+  </g>
+  
+  <!-- Stewardship principles -->
+  <g transform="translate(60, 170)">
+    <!-- Principle 1 -->
+    <circle cx="60" cy="30" r="25" fill="rgba(255,255,255,0.15)"/>
+    <text x="60" y="25" font-family="Arial" font-size="12" fill="white" text-anchor="middle">📊</text>
+    <text x="60" y="45" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Budgeting</text>
+    
+    <!-- Principle 2 -->
+    <circle cx="140" cy="30" r="25" fill="rgba(255,255,255,0.15)"/>
+    <text x="140" y="25" font-family="Arial" font-size="12" fill="white" text-anchor="middle">💰</text>
+    <text x="140" y="45" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Saving</text>
+    
+    <!-- Principle 3 -->
+    <circle cx="220" cy="30" r="25" fill="rgba(255,255,255,0.15)"/>
+    <text x="220" y="25" font-family="Arial" font-size="12" fill="white" text-anchor="middle">🎁</text>
+    <text x="220" y="45" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Giving</text>
+    
+    <!-- Principle 4 -->
+    <circle cx="280" cy="30" r="25" fill="rgba(255,255,255,0.15)"/>
+    <text x="280" y="25" font-family="Arial" font-size="12" fill="white" text-anchor="middle">📈</text>
+    <text x="280" y="45" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Investing</text>
+  </g>
+  
+  <!-- Bottom text -->
+  <text x="200" y="270" font-family="Arial" font-size="12" fill="rgba(255,255,255,0.9)" text-anchor="middle">
+    Managing Resources with Biblical Wisdom
+  </text>
+  
+  <!-- KBN Logo mark -->
+  <rect x="15" y="15" width="30" height="15" rx="3" fill="rgba(255,255,255,0.2)"/>
+  <text x="30" y="27" font-family="Arial" font-size="10" font-weight="bold" fill="white" text-anchor="middle">KBN</text>
+</svg> 

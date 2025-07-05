@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <defs>
+    <linearGradient id="churchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A148C"/>
+      <stop offset="100%" style="stop-color:#6A1B9A"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="400" fill="url(#churchGrad)"/>
+  
+  <!-- Overlay pattern -->
+  <circle cx="120" cy="80" r="40" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="480" cy="320" r="50" fill="rgba(255,255,255,0.08)"/>
+  
+  <!-- Title -->
+  <text x="300" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">
+    Church &amp; Business Partnership
+  </text>
+  
+  <!-- Church building -->
+  <g transform="translate(150, 80)">
+    <rect x="20" y="80" width="80" height="60" fill="rgba(255,255,255,0.15)"/>
+    <polygon points="40,80 60,50 80,80" fill="rgba(255,255,255,0.2)"/>
+    <rect x="58" y="40" width="4" height="15" fill="white"/>
+    <rect x="55" y="45" width="10" height="4" fill="white"/>
+    <rect x="55" y="110" width="10" height="20" fill="rgba(255,255,255,0.3)"/>
+    <rect x="30" y="100" width="8" height="12" fill="rgba(255,255,255,0.3)"/>
+    <rect x="82" y="100" width="8" height="12" fill="rgba(255,255,255,0.3)"/>
+    <text x="60" y="160" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Church</text>
+  </g>
+  
+  <!-- Business building -->
+  <g transform="translate(350, 80)">
+    <rect x="20" y="80" width="80" height="60" fill="rgba(255,255,255,0.15)"/>
+    <rect x="25" y="90" width="15" height="15" fill="rgba(255,255,255,0.3)"/>
+    <rect x="45" y="90" width="15" height="15" fill="rgba(255,255,255,0.3)"/>
+    <rect x="65" y="90" width="15" height="15" fill="rgba(255,255,255,0.3)"/>
+    <rect x="25" y="110" width="15" height="15" fill="rgba(255,255,255,0.3)"/>
+    <rect x="45" y="110" width="15" height="15" fill="rgba(255,255,255,0.3)"/>
+    <rect x="65" y="110" width="15" height="15" fill="rgba(255,255,255,0.3)"/>
+    <rect x="55" y="125" width="10" height="15" fill="rgba(255,255,255,0.3)"/>
+    <text x="60" y="160" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Business</text>
+  </g>
+  
+  <!-- Connection arrows -->
+  <g transform="translate(250, 120)">
+    <path d="M0 0 L80 0 L75 -5 M80 0 L75 5" stroke="white" stroke-width="2" fill="none"/>
+    <path d="M80 20 L0 20 L5 15 M0 20 L5 25" stroke="white" stroke-width="2" fill="none"/>
+  </g>
+  
+  <!-- Partnership benefits -->
+  <g transform="translate(80, 250)">
+    <circle cx="80" cy="40" r="35" fill="rgba(255,255,255,0.15)"/>
+    <text x="80" y="35" font-family="Arial" font-size="16" fill="white" text-anchor="middle">💰</text>
+    <text x="80" y="55" font-family="Arial" font-size="11" fill="white" text-anchor="middle">Financial</text>
+    <text x="80" y="70" font-family="Arial" font-size="11" fill="white" text-anchor="middle">Support</text>
+    
+    <circle cx="220" cy="40" r="35" fill="rgba(255,255,255,0.15)"/>
+    <text x="220" y="35" font-family="Arial" font-size="16" fill="white" text-anchor="middle">✝️</text>
+    <text x="220" y="55" font-family="Arial" font-size="11" fill="white" text-anchor="middle">Spiritual</text>
+    <text x="220" y="70" font-family="Arial" font-size="11" fill="white" text-anchor="middle">Growth</text>
+    
+    <circle cx="360" cy="40" r="35" fill="rgba(255,255,255,0.15)"/>
+    <text x="360" y="35" font-family="Arial" font-size="16" fill="white" text-anchor="middle">🤝</text>
+    <text x="360" y="55" font-family="Arial" font-size="11" fill="white" text-anchor="middle">Community</text>
+    <text x="360" y="70" font-family="Arial" font-size="11" fill="white" text-anchor="middle">Impact</text>
+  </g>
+  
+  <!-- Bottom text -->
+  <text x="300" y="370" font-family="Arial" font-size="14" fill="rgba(255,255,255,0.9)" text-anchor="middle">
+    Building God's Kingdom Through Business Excellence
+  </text>
+  
+  <!-- KBN Logo mark -->
+  <rect x="20" y="20" width="40" height="20" rx="5" fill="rgba(255,255,255,0.2)"/>
+  <text x="40" y="35" font-family="Arial" font-size="12" font-weight="bold" fill="white" text-anchor="middle">KBN</text>
+</svg> 

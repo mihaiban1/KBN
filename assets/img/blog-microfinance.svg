@@ -1,0 +1,119 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E0F6FF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="fieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#90EE90;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#228B22;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="hutGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#DEB887;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#CD853F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky background -->
+  <rect width="400" height="200" fill="url(#skyGrad)"/>
+  
+  <!-- Hills -->
+  <polygon points="0,150 100,120 200,140 300,110 400,130 400,200 0,200" fill="#8FBC8F"/>
+  
+  <!-- Ground/field -->
+  <rect x="0" y="200" width="400" height="100" fill="url(#fieldGrad)"/>
+  
+  <!-- Traditional huts -->
+  <circle cx="80" cy="230" r="25" fill="url(#hutGrad)"/>
+  <polygon points="55,230 80,200 105,230" fill="#8B4513"/>
+  <rect x="75" y="240" width="10" height="15" fill="#654321"/>
+  
+  <circle cx="140" cy="235" r="20" fill="url(#hutGrad)"/>
+  <polygon points="120,235 140,210 160,235" fill="#8B4513"/>
+  <rect x="136" y="242" width="8" height="12" fill="#654321"/>
+  
+  <!-- People figures -->
+  <circle cx="200" cy="220" r="6" fill="#8B4513"/>
+  <rect x="197" y="226" width="6" height="15" fill="#4169E2"/>
+  <rect x="195" y="230" width="3" height="8" fill="#8B4513"/>
+  <rect x="202" y="230" width="3" height="8" fill="#8B4513"/>
+  
+  <circle cx="220" cy="222" r="5" fill="#8B4513"/>
+  <rect x="218" y="227" width="4" height="12" fill="#FF6347"/>
+  <rect x="216" y="231" width="2" height="6" fill="#8B4513"/>
+  <rect x="222" y="231" width="2" height="6" fill="#8B4513"/>
+  
+  <!-- Money/coins exchange -->
+  <circle cx="210" cy="215" r="3" fill="#FFD700" opacity="0.9"/>
+  <text x="210" y="218" text-anchor="middle" font-family="serif" font-size="4" fill="#B8860B">$</text>
+  
+  <!-- Crops/farming -->
+  <rect x="260" y="240" width="2" height="8" fill="#228B22"/>
+  <circle cx="261" cy="238" r="3" fill="#FFD700"/>
+  
+  <rect x="270" y="242" width="2" height="6" fill="#228B22"/>
+  <circle cx="271" cy="240" r="2" fill="#FFD700"/>
+  
+  <rect x="280" y="241" width="2" height="7" fill="#228B22"/>
+  <circle cx="281" cy="239" r="2.5" fill="#FFD700"/>
+  
+  <!-- Mobile phone (representing digital banking) -->
+  <rect x="320" y="210" width="12" height="20" fill="#2F4F4F" rx="2"/>
+  <rect x="322" y="212" width="8" height="12" fill="#87CEEB"/>
+  <circle cx="326" cy="227" r="1.5" fill="#FFF"/>
+  
+  <!-- Connecting arrows (showing flow of money) -->
+  <path d="M 180 220 Q 190 210 200 215" stroke="#34A853" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 230 220 Q 250 210 270 235" stroke="#34A853" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" 
+            refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#34A853"/>
+    </marker>
+  </defs>
+  
+  <!-- Rwanda map outline (simplified) -->
+  <path d="M 30 50 Q 35 45 45 50 Q 55 48 60 55 Q 58 65 50 70 Q 40 68 30 60 Z" 
+        fill="#20603D" opacity="0.7" stroke="#FAD201" stroke-width="1"/>
+  
+  <!-- Tree -->
+  <rect x="347" y="230" width="6" height="20" fill="#8B4513"/>
+  <circle cx="350" cy="225" r="12" fill="#228B22"/>
+  
+  <!-- Sun -->
+  <circle cx="350" cy="50" r="15" fill="#FFD700" opacity="0.8"/>
+  <line x1="350" y1="25" x2="350" y2="35" stroke="#FFD700" stroke-width="2"/>
+  <line x1="370" y1="35" x2="365" y2="40" stroke="#FFD700" stroke-width="2"/>
+  <line x1="375" y1="50" x2="365" y2="50" stroke="#FFD700" stroke-width="2"/>
+  <line x1="370" y1="65" x2="365" y2="60" stroke="#FFD700" stroke-width="2"/>
+  <line x1="350" y1="75" x2="350" y2="65" stroke="#FFD700" stroke-width="2"/>
+  <line x1="330" y1="65" x2="335" y2="60" stroke="#FFD700" stroke-width="2"/>
+  <line x1="325" y1="50" x2="335" y2="50" stroke="#FFD700" stroke-width="2"/>
+  <line x1="330" y1="35" x2="335" y2="40" stroke="#FFD700" stroke-width="2"/>
+  
+  <!-- Small coins scattered -->
+  <circle cx="160" cy="250" r="2" fill="#FFD700"/>
+  <circle cx="240" cy="255" r="1.5" fill="#FFD700"/>
+  <circle cx="300" cy="250" r="2" fill="#FFD700"/>
+  
+  <!-- Growth indicators -->
+  <path d="M 120 260 L 125 255 L 130 260" stroke="#34A853" stroke-width="2" fill="none"/>
+  <path d="M 180 265 L 185 260 L 190 265" stroke="#34A853" stroke-width="2" fill="none"/>
+  <path d="M 290 270 L 295 265 L 300 270" stroke="#34A853" stroke-width="2" fill="none"/>
+  
+  <!-- Simple houses representing community development -->
+  <rect x="360" y="240" width="15" height="12" fill="#DEB887"/>
+  <polygon points="360,240 367.5,230 375,240" fill="#8B4513"/>
+  <rect x="365" y="245" width="5" height="7" fill="#654321"/>
+  
+  <!-- Clouds -->
+  <circle cx="100" cy="40" r="8" fill="#FFF" opacity="0.8"/>
+  <circle cx="110" cy="40" r="10" fill="#FFF" opacity="0.8"/>
+  <circle cx="120" cy="40" r="8" fill="#FFF" opacity="0.8"/>
+  
+  <circle cx="250" cy="35" r="6" fill="#FFF" opacity="0.8"/>
+  <circle cx="258" cy="35" r="8" fill="#FFF" opacity="0.8"/>
+  <circle cx="266" cy="35" r="6" fill="#FFF" opacity="0.8"/>
+</svg> 

@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free resources for Kingdom business development and church financial management from KBN Financial Boutique.">
+    <meta name="keywords" content="Kingdom business resources, church finance tools, business templates, financial planning, Rwanda">
+    <title>Resource Library - KBN Financial Boutique</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/utils.css">
+    
+    <style>
+        .resources-hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .resource-category {
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-soft);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .resource-category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .resource-category__header {
+            background: var(--color-primary);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .resource-category__icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .resource-category__title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .resource-category__description {
+            opacity: 0.9;
+        }
+        
+        .resource-category__body {
+            padding: 1.5rem;
+        }
+        
+        .resource-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .resource-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .resource-item:last-child {
+            border-bottom: none;
+        }
+        
+        .resource-item__icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--color-primary);
+        }
+        
+        .resource-item__content {
+            flex: 1;
+        }
+        
+        .resource-item__title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .resource-item__description {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .resource-item__meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+        }
+        
+        .resource-item__download {
+            background: var(--color-primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+        
+        .resource-item__download:hover {
+            background: var(--color-secondary);
+            color: white;
+        }
+        
+        .search-section {
+            background: var(--color-background);
+            padding: 3rem 0;
+        }
+        
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--color-border);
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .search-input:focus {
+            border-color: var(--color-primary);
+            outline: none;
+        }
+        
+        .search-button {
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .search-button:hover {
+            background: var(--color-secondary);
+        }
+        
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .filter-tab {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid var(--color-border);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .filter-tab.active {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+        
+        .filter-tab:hover {
+            border-color: var(--color-primary);
+        }
+        
+        .newsletter-signup {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .newsletter-form {
+            max-width: 500px;
+            margin: 2rem auto 0;
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-button {
+            background: white;
+            color: var(--color-primary);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-button:hover {
+            background: var(--color-background);
+            transform: translateY(-2px);
+        }
+        
+        .featured-resources {
+            background: white;
+            padding: 4rem 0;
+        }
+        
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .featured-resource {
+            background: var(--color-background);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .featured-resource:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-5px);
+        }
+        
+        .featured-resource__icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+        
+        .featured-resource__title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .featured-resource__description {
+            margin-bottom: 1.5rem;
+            color: var(--color-text-secondary);
+        }
+        
+        @media (max-width: 768px) {
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav__container">
+                <div class="nav__logo">
+                    <img src="assets/img/kbn-logo.png" alt="KBN Financial Boutique Logo" class="nav__logo-img">
+                </div>
+                <ul class="nav__menu" id="nav-menu">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="who-we-are.html" class="nav__link">Who We Are</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="loan.html" class="nav__link">Apply</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="blog/index.html" class="nav__link">Blog</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="contact.html" class="nav__link">Contact</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="resources.html" class="nav__link nav__link--active">Resources</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="login.html" class="nav__link nav__link--login">Login</a>
+                    </li>
+                </ul>
+                <div class="nav__toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="resources-hero">
+            <div class="container">
+                <h1>Resource Library</h1>
+                <p>Free tools, templates, and guides to help you build Kingdom businesses and manage ministry finances</p>
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="container">
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="Search resources..." id="resource-search">
+                    <button class="search-button" id="search-btn">Search</button>
+                </div>
+                
+                <div class="filter-tabs">
+                    <div class="filter-tab active" data-category="all">All Resources</div>
+                    <div class="filter-tab" data-category="business">Business Tools</div>
+                    <div class="filter-tab" data-category="church">Church Finance</div>
+                    <div class="filter-tab" data-category="training">Training Materials</div>
+                    <div class="filter-tab" data-category="legal">Legal & Compliance</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Resources -->
+        <section class="featured-resources">
+            <div class="container">
+                <h2 class="section-title">Featured Resources</h2>
+                <div class="featured-grid">
+                    <div class="featured-resource">
+                        <div class="featured-resource__icon">📊</div>
+                        <h3 class="featured-resource__title">Kingdom Business Plan Template</h3>
+                        <p class="featured-resource__description">
+                            Comprehensive business plan template specifically designed for Kingdom businesses.
+                        </p>
+                        <a href="assets/resources/kingdom-business-plan-template.docx" class="btn btn--primary" download>
+                            Download Now
+                        </a>
+                    </div>
+                    
+                    <div class="featured-resource">
+                        <div class="featured-resource__icon">⛪</div>
+                        <h3 class="featured-resource__title">Church Budget Template</h3>
+                        <p class="featured-resource__description">
+                            Excel template for creating and managing church budgets with biblical principles.
+                        </p>
+                        <a href="assets/resources/church-budget-template.xlsx" class="btn btn--primary" download>
+                            Download Now
+                        </a>
+                    </div>
+                    
+                    <div class="featured-resource">
+                        <div class="featured-resource__icon">📚</div>
+                        <h3 class="featured-resource__title">Stewardship Training Guide</h3>
+                        <p class="featured-resource__description">
+                            Complete guide for teaching biblical stewardship in your church or organization.
+                        </p>
+                        <a href="assets/resources/stewardship-training-guide.pdf" class="btn btn--primary" download>
+                            Download Now
+                        </a>
+                    </div>
+                    
+                    <div class="featured-resource">
+                        <div class="featured-resource__icon">📋</div>
+                        <h3 class="featured-resource__title">Financial Policies Template</h3>
+                        <p class="featured-resource__description">
+                            Ready-to-use financial policies template for churches and Christian organizations.
+                        </p>
+                        <a href="assets/resources/financial-policies-template.docx" class="btn btn--primary" download>
+                            Download Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resource Categories -->
+        <section class="resources-section">
+            <div class="container">
+                <div class="resources-grid">
+                    <!-- Business Tools -->
+                    <div class="resource-category" data-category="business">
+                        <div class="resource-category__header">
+                            <div class="resource-category__icon">💼</div>
+                            <h3 class="resource-category__title">Business Tools</h3>
+                            <p class="resource-category__description">Templates and tools for Kingdom business development</p>
+                        </div>
+                        <div class="resource-category__body">
+                            <ul class="resource-list">
+                                <li class="resource-item">
+                                    <div class="resource-item__icon">📊</div>
+                                    <div class="resource-item__content">
+                                        <div class="resource-item__title">Kingdom Business Plan Template</div>
+                                        <div class="resource-item__description">Comprehensive business plan template with biblical principles integration</div>
+                                        <div class="resource-item__meta">
+                                            <span>📄 DOCX</span>
+                                            <span>📊 25 pages</span>
+                                            <span>🕒 Updated Mar 2024</span>
+                                        </div>
+                                    </div>
+                                    <a href="assets/resources/kingdom-business-plan-template.docx" class="resource-item__download" download>Download</a>
+                                </li>
+                                
+                                <li class="resource-item">
+                                    <div class="resource-item__icon">💰</div>
+                                    <div class="resource-item__content">
+                                        <div class="resource-item__title">Financial Projection Spreadsheet</div>
+                                        <div class="resource-item__description">Excel template for 5-year financial projections and cash flow analysis</div>
+                                        <div class="resource-item__meta">
+                                            <span>📊 XLSX</span>
+                                            <span>📈 Multiple sheets</span>
+                                            <span>🕒 Updated Mar 2024</span>
+                                        </div>
+                                    </div>
+                                    <a href="assets/resources/financial-projection-template.xlsx" class="resource-item__download" download>Download</a>
+                                </li>
+                                
+                                <li class="resource-item">
+                                    <div class="resource-item__icon">📋</div>
+                                    <div class="resource-item__content">
+                                        <div class="resource-item__title">Impact Measurement Framework</div>
+                                        <div class="resource-item__description">Tools to measure social and spiritual impact of Kingdom businesses</div>
+                                        <div class="resource-item__meta">
+                                            <span>📄 PDF</span>
+                                            <span>📊 15 pages</span>
+                                            <span>🕒 Updated Feb 2024</span>
+                                        </div>
+                                    </div>
+                                    <a href="assets/resources/impact-measurement-framework.pdf" class="resource-item__download" download>Download</a>
+                                </li>
+                                
+                                <li class="resource-item">
+                                    <div class="resource-item__icon">🤝</div>
+                                    <div class="resource-item__content">
+                                        <div class="resource-item__title">Partnership Agreement Template</div>
+                                        <div class="resource-item__description">Legal template for Christian business partnerships</div>
+                                        <div class="resource-item__meta">
+                                            <span>📄 DOCX</span>
+                                            <span>📊 12 pages</span>
+                                            <span>🕒 Updated Jan 2024</span>
+                                        </div>
+                                    </div>
+                                    <a href="assets/resources/partnership-agreement-template.docx" class="resource-item__download" download>Download</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Church Finance -->
+                    <div class="resource-category" data-category="church">
+                        <div class="resource-category__header">
+                            <div class="resource-category__icon">⛪</div>
+                            <h3 class="resource-category__title">Church Finance</h3>
+                            <p class="resource-category__description">Financial management tools for churches and ministries</p>
+                        </div>
+                        <div class="resource-category__body">
+                            <ul class="resource-list">
+                                <li class="resource-item">
+                                    <div class="resource-item__icon">📊</div>
+                                    <div class="resource-item__content">
+                                        <div class="resource-item__title">Church Budget Template</div>
+                                        <div class="resource-item__description">Comprehensive Excel template for church budgeting and financial planning</div>
+                                        <div class="resource-item__meta">
+                                            <span>📊 XLSX</span>
+                                            <span>📈 Multiple sheets</span>
+                                            <span>🕒 Updated Mar 2024</span>
+                                        </div>
+                                    </div>
+                                    <a href="assets/resources/church-budget-template.xlsx" class="resource-item__download" download>Download</a>
+                                </li>
+                                
+                                <li class="resource-item">
+                                    <div class="resource-item__icon">📋</div>
+                                    <div class="resource-item__content">
+                                        <div class="resource-item__title">Financial Policies Guide</div>
+                                        <div class="resource-item__description">Complete guide to establishing financial policies for churches</div>
+                                        <div class="resource-item__meta">
+                                            <span>📄 PDF</span>
+                                            <span>📊 20 pages</span>
+                                            <span>🕒 Updated Feb 2024</span>
+                                        </div>
+                                    </div>
+                                    <a href="assets/resources/financial-policies-guide.pdf" class="resource-item__download" download>Download</a>
+                                </li>
+                                
+                                <li class="resource-item">
+                                    <div class="resource-item__icon">✅</div>
+                                    <div class="resource-item__content">
+                                        <div class="resource-item__title">Offering Counting Checklist</div>
+                                        <div class="resource-item__description">Step-by-step checklist for proper offering handling and counting</div>
+                                        <div class="resource-item__meta">
+                                            <span>📄 PDF</span>
+                                            <span>📊 3 pages</span>
+                                            <span>🕒 Updated Jan 2024</span>
+                                        </div>
+                                    </div>
+                                    <a href="assets/resources/offering-counting-checklist.pdf" class="resource-item__download" download>Download</a>
+                                </li>
+                                
+                                <li class="resource-item">
+                                    <div class="resource-item__icon">📈</div>
+                                    <div class="resource-item__content">
+                                        <div class="resource-item__title">Ministry Financial Report Template</div>
+                                        <div class="resource-item__description">Monthly and annual financial reporting templates for churches</div>
+                                        <div class="resource-item__meta">
+                                            <span>📊 XLSX</span>
+                                            <span>📈 Multiple sheets</span>
+                                            <span>🕒 Updated Mar 2024</span>
+                                        </div>
+                                    </div>
+                                    <a href="assets/resources/ministry-financial-report-template.xlsx" class="resource-item__download" download>Download</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Training Materials -->
+                    <div class="resource-category" data-category="training">
+                        <div class="resource-category__header">
+                            <div class="resource-category__icon">🎓</div>
+                            <h3 class="resource-category__title">Training Materials</h3>
+                            <p class="resource-category__description">Educational resources for Kingdom business and financial stewardship</p>
+                        </div>
+                        <div class="resource-category__body">
+                            <ul class="resource-list">
+                                <li class="resource-item">
+                                    <div class="resource-item__icon">📚</div>
+                                    <div class="resource-item__content">
+                                        <div class="resource-item__title">Kingdom Stewardship Training Guide</div>
+                                        <div class="resource-item__description">Complete curriculum for teaching biblical stewardship principles</div>
+                                        <div class="resource-item__meta">
+                                            <span>📄 PDF</span>
+                                            <span>📊 35 pages</span>
+                                            <span>🕒 Updated Mar 2024</span>
+                                        </div>
+                                    </div>
+                                    <a href="assets/resources/stewardship-training-guide.pdf" class="resource-item__download" download>Download</a>
+                                </li>
+                                
+                                <li class="resource-item">
+                                    <div class="resource-item__icon">🎯</div>
+                                    <div class="resource-item__content">
+                                        <div class="resource-item__title">Biblical Business Principles Workshop</div>
+                                        <div class="resource-item__description">Facilitator's guide and participant workbook for business ethics training</div>
+                                        <div class="resource-item__meta">
+                                            <span>📄 PDF</span>
+                                            <span>📊 28 pages</span>
+                                            <span>🕒 Updated Feb 2024</span>
+                                        </div>
+                                    </div>
+                                    <a href="assets/resources/biblical-business-principles-workshop.pdf" class="resource-item__download" download>Download</a>
+                                </li>
+                                
+                                <li class="resource-item">
+                                    <div class="resource-item__icon">📖</div>
+                                    <div class="resource-item__content">
+                                        <div class="resource-item__title">Stewardship Sermon Series</div>
+                                        <div class="resource-item__description">6-week sermon series on biblical stewardship with study guides</div>
+                                        <div class="resource-item__meta">
+                                            <span>📄 PDF</span>
+                                            <span>📊 42 pages</span>
+                                            <span>🕒 Updated Jan 2024</span>
+                                        </div>
+                                    </div>
+                                    <a href="assets/resources/stewardship-sermon-series.pdf" class="resource-item__download" download>Download</a>
+                                </li>
+                                
+                                <li class="resource-item">
+                                    <div class="resource-item__icon">🔍</div>
+                                    <div class="resource-item__content">
+                                        <div class="resource-item__title">Financial Accountability Audit Checklist</div>
+                                        <div class="resource-item__description">Comprehensive checklist for church financial accountability assessments</div>
+                                        <div class="resource-item__meta">
+                                            <span>📄 PDF</span>
+                                            <span>📊 8 pages</span>
+                                            <span>🕒 Updated Feb 2024</span>
+                                        </div>
+                                    </div>
+                                    <a href="assets/resources/financial-accountability-audit-checklist.pdf" class="resource-item__download" download>Download</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Legal & Compliance -->
+                    <div class="resource-category" data-category="legal">
+                        <div class="resource-category__header">
+                            <div class="resource-category__icon">⚖️</div>
+                            <h3 class="resource-category__title">Legal & Compliance</h3>
+                            <p class="resource-category__description">Legal templates and compliance guides for Rwanda</p>
+                        </div>
+                        <div class="resource-category__body">
+                            <ul class="resource-list">
+                                <li class="resource-item">
+                                    <div class="resource-item__icon">📄</div>
+                                    <div class="resource-item__content">
+                                        <div class="resource-item__title">Church Registration Guide (Rwanda)</div>
+                                        <div class="resource-item__description">Step-by-step guide for registering churches in Rwanda</div>
+                                        <div class="resource-item__meta">
+                                            <span>📄 PDF</span>
+                                            <span>📊 18 pages</span>
+                                            <span>🕒 Updated Mar 2024</span>
+                                        </div>
+                                    </div>
+                                    <a href="assets/resources/church-registration-guide-rwanda.pdf" class="resource-item__download" download>Download</a>
+                                </li>
+                                
+                                <li class="resource-item">
+                                    <div class="resource-item__icon">📋</div>
+                                    <div class="resource-item__content">
+                                        <div class="resource-item__title">Business License Application Guide</div>
+                                        <div class="resource-item__description">Complete guide for obtaining business licenses in Rwanda</div>
+                                        <div class="resource-item__meta">
+                                            <span>📄 PDF</span>
+                                            <span>📊 22 pages</span>
+                                            <span>🕒 Updated Feb 2024</span>
+                                        </div>
+                                    </div>
+                                    <a href="assets/resources/business-license-application-guide.pdf" class="resource-item__download" download>Download</a>
+                                </li>
+                                
+                                <li class="resource-item">
+                                    <div class="resource-item__icon">🏛️</div>
+                                    <div class="resource-item__content">
+                                        <div class="resource-item__title">Tax Compliance for Churches</div>
+                                        <div class="resource-item__description">Guide to tax obligations and exemptions for religious organizations</div>
+                                        <div class="resource-item__meta">
+                                            <span>📄 PDF</span>
+                                            <span>📊 15 pages</span>
+                                            <span>🕒 Updated Jan 2024</span>
+                                        </div>
+                                    </div>
+                                    <a href="assets/resources/tax-compliance-for-churches.pdf" class="resource-item__download" download>Download</a>
+                                </li>
+                                
+                                <li class="resource-item">
+                                    <div class="resource-item__icon">🔒</div>
+                                    <div class="resource-item__content">
+                                        <div class="resource-item__title">Data Protection & Privacy Policy Template</div>
+                                        <div class="resource-item__description">GDPR-compliant privacy policy template for churches and organizations</div>
+                                        <div class="resource-item__meta">
+                                            <span>📄 DOCX</span>
+                                            <span>📊 10 pages</span>
+                                            <span>🕒 Updated Mar 2024</span>
+                                        </div>
+                                    </div>
+                                    <a href="assets/resources/data-protection-privacy-policy-template.docx" class="resource-item__download" download>Download</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Signup -->
+        <section class="newsletter-signup">
+            <div class="container">
+                <h2>Stay Updated</h2>
+                <p>Get new resources, training opportunities, and Kingdom business insights delivered to your inbox</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="newsletter-button">Subscribe</button>
+                </form>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                    Join over 2,000 Kingdom business leaders and ministry leaders who receive our weekly updates.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3>KBN Financial Boutique</h3>
+                    <p>We are Intentional, International and Generational</p>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link">Facebook</a>
+                        <a href="#" class="footer__social-link">Twitter</a>
+                        <a href="#" class="footer__social-link">LinkedIn</a>
+                    </div>
+                </div>
+                <div class="footer__section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="who-we-are.html">Who We Are</a></li>
+                        <li><a href="loan.html">Apply</a></li>
+                        <li><a href="blog/index.html">Blog</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#business">Business Tools</a></li>
+                        <li><a href="#church">Church Finance</a></li>
+                        <li><a href="#training">Training Materials</a></li>
+                        <li><a href="#legal">Legal & Compliance</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4>Contact</h4>
+                    <p>KG 176 Str, Gasabo, Remera<br>Kigali, Rwanda</p>
+                    <p>+250 795 308 627</p>
+                    <p>info@kbn.com</p>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 KBN Financial Boutique. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeResourcesPage();
+        });
+
+        function initializeResourcesPage() {
+            // Initialize search functionality
+            const searchInput = document.getElementById('resource-search');
+            const searchBtn = document.getElementById('search-btn');
+            const filterTabs = document.querySelectorAll('.filter-tab');
+            const resourceCategories = document.querySelectorAll('.resource-category');
+            
+            // Search functionality
+            function performSearch() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const activeCategory = document.querySelector('.filter-tab.active').dataset.category;
+                
+                resourceCategories.forEach(category => {
+                    const categoryType = category.dataset.category;
+                    const resourceItems = category.querySelectorAll('.resource-item');
+                    let hasVisibleItems = false;
+                    
+                    resourceItems.forEach(item => {
+                        const title = item.querySelector('.resource-item__title').textContent.toLowerCase();
+                        const description = item.querySelector('.resource-item__description').textContent.toLowerCase();
+                        
+                        const matchesSearch = searchTerm === '' || title.includes(searchTerm) || description.includes(searchTerm);
+                        const matchesCategory = activeCategory === 'all' || categoryType === activeCategory;
+                        
+                        if (matchesSearch && matchesCategory) {
+                            item.style.display = 'flex';
+                            hasVisibleItems = true;
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                    
+                    // Show/hide category based on active filter and search results
+                    if (activeCategory === 'all' || categoryType === activeCategory) {
+                        if (hasVisibleItems || searchTerm === '') {
+                            category.style.display = 'block';
+                        } else {
+                            category.style.display = 'none';
+                        }
+                    } else {
+                        category.style.display = 'none';
+                    }
+                });
+            }
+            
+            searchBtn.addEventListener('click', performSearch);
+            searchInput.addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+            
+            // Filter tabs functionality
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Update active tab
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Perform search with new filter
+                    performSearch();
+                });
+            });
+            
+            // Newsletter signup
+            const newsletterForm = document.getElementById('newsletter-form');
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = this.querySelector('.newsletter-input').value;
+                
+                // Simulate newsletter signup
+                alert(`Thank you for subscribing! We'll send Kingdom business insights to ${email}`);
+                this.reset();
+            });
+            
+            // Track resource downloads
+            const downloadLinks = document.querySelectorAll('.resource-item__download');
+            downloadLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const resourceTitle = this.closest('.resource-item').querySelector('.resource-item__title').textContent;
+                    console.log(`Downloaded: ${resourceTitle}`);
+                    
+                    // Could send analytics event here
+                    // Example: gtag('event', 'download', { 'resource_name': resourceTitle });
+                });
+            });
+        }
+    </script>
+</body>
+</html> 

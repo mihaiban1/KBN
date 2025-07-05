@@ -1,0 +1,78 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bookGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#654321;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="coinGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8F5E8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F0F8FF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#bgGradient)"/>
+  
+  <!-- Bible/Book -->
+  <rect x="120" y="120" width="80" height="60" fill="url(#bookGradient)" rx="3"/>
+  <rect x="125" y="125" width="70" height="5" fill="#DDD" opacity="0.8"/>
+  <rect x="125" y="135" width="65" height="2" fill="#999" opacity="0.6"/>
+  <rect x="125" y="140" width="68" height="2" fill="#999" opacity="0.6"/>
+  <rect x="125" y="145" width="60" height="2" fill="#999" opacity="0.6"/>
+  <rect x="125" y="150" width="66" height="2" fill="#999" opacity="0.6"/>
+  
+  <!-- Cross on Bible -->
+  <rect x="148" y="135" width="2" height="15" fill="#FFD700"/>
+  <rect x="142" y="140" width="14" height="2" fill="#FFD700"/>
+  
+  <!-- Coins scattered around -->
+  <circle cx="250" cy="140" r="12" fill="url(#coinGradient)" stroke="#B8860B" stroke-width="1"/>
+  <circle cx="250" cy="140" r="8" fill="#FFD700" opacity="0.8"/>
+  <text x="250" y="145" text-anchor="middle" font-family="serif" font-size="8" fill="#B8860B">$</text>
+  
+  <circle cx="280" cy="160" r="10" fill="url(#coinGradient)" stroke="#B8860B" stroke-width="1"/>
+  <circle cx="280" cy="160" r="6" fill="#FFD700" opacity="0.8"/>
+  <text x="280" y="164" text-anchor="middle" font-family="serif" font-size="6" fill="#B8860B">$</text>
+  
+  <circle cx="220" cy="180" r="11" fill="url(#coinGradient)" stroke="#B8860B" stroke-width="1"/>
+  <circle cx="220" cy="180" r="7" fill="#FFD700" opacity="0.8"/>
+  <text x="220" y="185" text-anchor="middle" font-family="serif" font-size="7" fill="#B8860B">$</text>
+  
+  <!-- Hands in prayer/stewardship position -->
+  <ellipse cx="160" cy="200" rx="15" ry="10" fill="#DEB887" opacity="0.9"/>
+  <ellipse cx="160" cy="190" rx="15" ry="10" fill="#DEB887" opacity="0.9"/>
+  
+  <!-- Growing plant (representing growth) -->
+  <rect x="298" y="220" width="4" height="25" fill="#228B22"/>
+  <ellipse cx="300" cy="210" rx="8" ry="12" fill="#32CD32"/>
+  <ellipse cx="305" cy="205" rx="6" ry="8" fill="#90EE90"/>
+  <ellipse cx="295" cy="205" rx="6" ry="8" fill="#90EE90"/>
+  
+  <!-- Simple chart/graph -->
+  <rect x="80" y="200" width="60" height="40" fill="#fff" stroke="#34A853" stroke-width="2" rx="3"/>
+  <line x1="85" y1="235" x2="85" y2="205" stroke="#34A853" stroke-width="1"/>
+  <line x1="85" y1="235" x2="135" y2="235" stroke="#34A853" stroke-width="1"/>
+  
+  <!-- Ascending bars -->
+  <rect x="90" y="225" width="6" height="10" fill="#34A853"/>
+  <rect x="100" y="220" width="6" height="15" fill="#34A853"/>
+  <rect x="110" y="215" width="6" height="20" fill="#34A853"/>
+  <rect x="120" y="210" width="6" height="25" fill="#34A853"/>
+  
+  <!-- Hearts (representing care/stewardship) -->
+  <path d="M 70 80 C 70 75, 75 70, 80 70 C 85 70, 90 75, 90 80 C 90 85, 80 95, 70 80" fill="#FF6B6B" opacity="0.7"/>
+  <path d="M 320 70 C 320 65, 325 60, 330 60 C 335 60, 340 65, 340 70 C 340 75, 330 85, 320 70" fill="#FF6B6B" opacity="0.7"/>
+  
+  <!-- Scripture reference background -->
+  <rect x="50" y="250" width="300" height="30" fill="#fff" opacity="0.9" rx="5"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="60" cy="100" r="3" fill="#34A853" opacity="0.5"/>
+  <circle cx="340" cy="120" r="4" fill="#1976D2" opacity="0.5"/>
+  <circle cx="360" cy="180" r="3" fill="#FF9800" opacity="0.5"/>
+  <circle cx="40" cy="180" r="2" fill="#9C27B0" opacity="0.5"/>
+</svg> 

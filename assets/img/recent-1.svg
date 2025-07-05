@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="recentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1976D2"/>
+      <stop offset="100%" style="stop-color:#2196F3"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#recentGrad)"/>
+  
+  <!-- Overlay pattern -->
+  <circle cx="350" cy="50" r="30" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="50" cy="250" r="25" fill="rgba(255,255,255,0.08)"/>
+  
+  <!-- Title -->
+  <text x="200" y="40" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">
+    Kingdom Business Success
+  </text>
+  
+  <!-- Central crown icon -->
+  <g transform="translate(170, 80)">
+    <!-- Crown -->
+    <polygon points="30,50 0,20 15,30 30,10 45,30 60,20 30,50" fill="rgba(255,255,255,0.2)"/>
+    <rect x="20" y="50" width="20" height="8" fill="rgba(255,255,255,0.15)"/>
+    <!-- Gems -->
+    <circle cx="30" cy="25" r="3" fill="#FFD700"/>
+    <circle cx="15" cy="35" r="2" fill="#FFD700"/>
+    <circle cx="45" cy="35" r="2" fill="#FFD700"/>
+  </g>
+  
+  <!-- Success principles -->
+  <g transform="translate(60, 170)">
+    <!-- Principle 1 -->
+    <circle cx="60" cy="30" r="25" fill="rgba(255,255,255,0.15)"/>
+    <text x="60" y="25" font-family="Arial" font-size="12" fill="white" text-anchor="middle">🎯</text>
+    <text x="60" y="45" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Purpose</text>
+    
+    <!-- Principle 2 -->
+    <circle cx="140" cy="30" r="25" fill="rgba(255,255,255,0.15)"/>
+    <text x="140" y="25" font-family="Arial" font-size="12" fill="white" text-anchor="middle">💎</text>
+    <text x="140" y="45" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Integrity</text>
+    
+    <!-- Principle 3 -->
+    <circle cx="220" cy="30" r="25" fill="rgba(255,255,255,0.15)"/>
+    <text x="220" y="25" font-family="Arial" font-size="12" fill="white" text-anchor="middle">🤝</text>
+    <text x="220" y="45" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Service</text>
+    
+    <!-- Principle 4 -->
+    <circle cx="280" cy="30" r="25" fill="rgba(255,255,255,0.15)"/>
+    <text x="280" y="25" font-family="Arial" font-size="12" fill="white" text-anchor="middle">📈</text>
+    <text x="280" y="45" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Growth</text>
+  </g>
+  
+  <!-- Bottom text -->
+  <text x="200" y="270" font-family="Arial" font-size="12" fill="rgba(255,255,255,0.9)" text-anchor="middle">
+    Building Businesses That Honor God
+  </text>
+  
+  <!-- KBN Logo mark -->
+  <rect x="15" y="15" width="30" height="15" rx="3" fill="rgba(255,255,255,0.2)"/>
+  <text x="30" y="27" font-family="Arial" font-size="10" font-weight="bold" fill="white" text-anchor="middle">KBN</text>
+</svg> 
